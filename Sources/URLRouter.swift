@@ -48,6 +48,9 @@ class RouterFactory {
         routers[router.module] = router
     }
     
+    func register(_ routers: [URLRouter]) {
+        routers.forEach { register($0) }
+    }
 }
 
 
@@ -56,6 +59,6 @@ func Route(_ url: URL, parameter: [String: Any]? = nil, completion: (([String: A
 }
 
 func Fetch(_ url: URL, parameter: [String: Any]? = nil, completion: (([String: Any]) -> Void)? = nil) -> UIViewController? {
-    return RouterFactory.shared.router(for: url.host!).fetch(url, parameter: parameter, completion: completion)
+    RouterFactory.shared.router(for: url.host!).fetch(url, parameter: parameter, completion: completion)
 }
 
