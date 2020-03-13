@@ -2,8 +2,8 @@
 //  ARouter.swift
 //  URLRouter
 //
-//  Created by Dsee.Lab on 2020/3/13.
-//  Copyright © 2020 Dsee.Lab. All rights reserved.
+//  Created by iAllenC on 2020/3/13.
+//  Copyright © 2020 iAllenC. All rights reserved.
 //
 
 import UIKit
@@ -11,8 +11,13 @@ import UIKit
 class ARouter: URLRouter {
     
     var module: String = "moduleA"
+        
+    var subRouters: [String : URLRouter]? = ["moduleA_sub1": ARouterOne(), "moduleA_sub2": ARouterTwo()]
     
     func route(_ url: URL, parameter: [String: Any]?, completion: (([String: Any]) -> Void)?) {
+        if let subRouter = subRouter(url) {
+            return subRouter.route(url, parameter: parameter, completion: completion)
+        }
         let avc = AViewController()
         avc.value = url.queryParameter?["value"]
         pushViewController(avc, animated: true)
@@ -20,9 +25,53 @@ class ARouter: URLRouter {
     }
     
     func fetch(_ url: URL, parameter: [String : Any]?, completion: (([String : Any]) -> Void)?) -> UIViewController? {
+        if let subRouter = subRouter(url) {
+            return subRouter.fetch(url, parameter: parameter, completion: completion)
+        }
         let avc = AViewController()
         avc.value = url.queryParameter?["value"]
         completion?(["result": avc])
         return avc
     }
+}
+
+class ARouterOne: URLRouter {
+        
+    var module: String = "moduleA_sub1"
+
+    var subRouters: [String : URLRouter]?
+
+    func route(_ url: URL, parameter: [String : Any]?, completion: (([String : Any]) -> Void)?) {
+        let avc_sub1 = AViewControllerSubOne()
+        pushViewController(avc_sub1, animated: true)
+        completion?(["result": avc_sub1])
+    }
+    
+    func fetch(_ url: URL, parameter: [String : Any]?, completion: (([String : Any]) -> Void)?) -> UIViewController? {
+        let avc_sub1 = AViewControllerSubOne()
+        return avc_sub1
+    }
+    
+
+}
+
+class ARouterTwo: URLRouter {
+    
+    var module: String = "moduleA_sub2"
+
+    var subRouters: [String : URLRouter]?
+
+    func route(_ url: URL, parameter: [String : Any]?, completion: (([String : Any]) -> Void)?) {
+        let avc_sub2 = AViewControllerSubTwo()
+        pushViewController(avc_sub2, animated: true)
+        completion?(["result": avc_sub2])
+    }
+    
+    func fetch(_ url: URL, parameter: [String : Any]?, completion: (([String : Any]) -> Void)?) -> UIViewController? {
+        let avc_sub2 = AViewControllerSubTwo()
+        completion?(["result": avc_sub2])
+        return avc_sub2
+    }
+    
+
 }

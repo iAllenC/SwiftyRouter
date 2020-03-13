@@ -12,48 +12,29 @@
 		F72D3298241A6DCD000BEE0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72D3296241A6DCD000BEE0D /* Main.storyboard */; };
 		F72D329A241A6DCE000BEE0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72D3299241A6DCE000BEE0D /* Assets.xcassets */; };
 		F72D329D241A6DCE000BEE0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72D329B241A6DCE000BEE0D /* LaunchScreen.storyboard */; };
-		F72D32A8241A6DCF000BEE0D /* URLHandlerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32A7241A6DCF000BEE0D /* URLHandlerUITests.swift */; };
 		F72D32B4241A6DFB000BEE0D /* URLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32B3241A6DFB000BEE0D /* URLRouter.swift */; };
-		F72D32B5241A6DFB000BEE0D /* URLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32B3241A6DFB000BEE0D /* URLRouter.swift */; };
 		F72D32BD241A75A4000BEE0D /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32BB241A75A4000BEE0D /* AViewController.swift */; };
-		F72D32BE241A75A4000BEE0D /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32BB241A75A4000BEE0D /* AViewController.swift */; };
 		F72D32BF241A75A4000BEE0D /* AViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72D32BC241A75A4000BEE0D /* AViewController.xib */; };
-		F72D32C0241A75A4000BEE0D /* AViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72D32BC241A75A4000BEE0D /* AViewController.xib */; };
 		F72D32C3241A75B0000BEE0D /* BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32C1241A75B0000BEE0D /* BViewController.swift */; };
-		F72D32C4241A75B0000BEE0D /* BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32C1241A75B0000BEE0D /* BViewController.swift */; };
 		F72D32C5241A75B0000BEE0D /* BViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72D32C2241A75B0000BEE0D /* BViewController.xib */; };
-		F72D32C6241A75B0000BEE0D /* BViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72D32C2241A75B0000BEE0D /* BViewController.xib */; };
 		F72D32CB241BB337000BEE0D /* ARouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32CA241BB337000BEE0D /* ARouter.swift */; };
-		F72D32CC241BB337000BEE0D /* ARouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32CA241BB337000BEE0D /* ARouter.swift */; };
 		F72D32CE241BB3F9000BEE0D /* BRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32CD241BB3F9000BEE0D /* BRouter.swift */; };
-		F72D32CF241BB3F9000BEE0D /* BRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32CD241BB3F9000BEE0D /* BRouter.swift */; };
 		F72D32D1241BB58A000BEE0D /* URL+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32D0241BB58A000BEE0D /* URL+Router.swift */; };
-		F72D32D2241BB58A000BEE0D /* URL+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32D0241BB58A000BEE0D /* URL+Router.swift */; };
 		F72D32D4241BB5E1000BEE0D /* URLRouter+transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32D3241BB5E1000BEE0D /* URLRouter+transform.swift */; };
-		F72D32D5241BB5E1000BEE0D /* URLRouter+transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32D3241BB5E1000BEE0D /* URLRouter+transform.swift */; };
+		F72D32D8241BBC2A000BEE0D /* AViewControllerSubOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32D6241BBC29000BEE0D /* AViewControllerSubOne.swift */; };
+		F72D32DA241BBC2A000BEE0D /* AViewControllerSubOne.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72D32D7241BBC29000BEE0D /* AViewControllerSubOne.xib */; };
+		F72D32DE241BBC4D000BEE0D /* AViewControllerSubTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32DC241BBC4D000BEE0D /* AViewControllerSubTwo.swift */; };
+		F72D32E0241BBC4D000BEE0D /* AViewControllerSubTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72D32DD241BBC4D000BEE0D /* AViewControllerSubTwo.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F72D32A4241A6DCF000BEE0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F72D3285241A6DCD000BEE0D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F72D328C241A6DCD000BEE0D;
-			remoteInfo = URLHandler;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		F72D328D241A6DCD000BEE0D /* URLHandler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLHandler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F72D328D241A6DCD000BEE0D /* URLRouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLRouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72D3290241A6DCD000BEE0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F72D3294241A6DCD000BEE0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F72D3297241A6DCD000BEE0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F72D3299241A6DCE000BEE0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F72D329C241A6DCE000BEE0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F72D329E241A6DCE000BEE0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F72D32A3241A6DCF000BEE0D /* URLHandlerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URLHandlerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F72D32A7241A6DCF000BEE0D /* URLHandlerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandlerUITests.swift; sourceTree = "<group>"; };
-		F72D32A9241A6DCF000BEE0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F72D32B3241A6DFB000BEE0D /* URLRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRouter.swift; sourceTree = "<group>"; };
 		F72D32BB241A75A4000BEE0D /* AViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AViewController.swift; sourceTree = "<group>"; };
 		F72D32BC241A75A4000BEE0D /* AViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AViewController.xib; sourceTree = "<group>"; };
@@ -63,17 +44,14 @@
 		F72D32CD241BB3F9000BEE0D /* BRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRouter.swift; sourceTree = "<group>"; };
 		F72D32D0241BB58A000BEE0D /* URL+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Router.swift"; sourceTree = "<group>"; };
 		F72D32D3241BB5E1000BEE0D /* URLRouter+transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRouter+transform.swift"; sourceTree = "<group>"; };
+		F72D32D6241BBC29000BEE0D /* AViewControllerSubOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AViewControllerSubOne.swift; sourceTree = "<group>"; };
+		F72D32D7241BBC29000BEE0D /* AViewControllerSubOne.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AViewControllerSubOne.xib; sourceTree = "<group>"; };
+		F72D32DC241BBC4D000BEE0D /* AViewControllerSubTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AViewControllerSubTwo.swift; sourceTree = "<group>"; };
+		F72D32DD241BBC4D000BEE0D /* AViewControllerSubTwo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AViewControllerSubTwo.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F72D328A241A6DCD000BEE0D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F72D32A0241A6DCF000BEE0D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -87,10 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				F72D32B2241A6DF0000BEE0D /* Sources */,
-				F72D328F241A6DCD000BEE0D /* URLHandler */,
+				F72D328F241A6DCD000BEE0D /* URLRouter */,
 				F72D32B6241A7543000BEE0D /* ModuleA */,
 				F72D32B7241A7543000BEE0D /* ModuleB */,
-				F72D32A6241A6DCF000BEE0D /* URLHandlerUITests */,
 				F72D328E241A6DCD000BEE0D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,13 +75,12 @@
 		F72D328E241A6DCD000BEE0D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F72D328D241A6DCD000BEE0D /* URLHandler.app */,
-				F72D32A3241A6DCF000BEE0D /* URLHandlerUITests.xctest */,
+				F72D328D241A6DCD000BEE0D /* URLRouter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F72D328F241A6DCD000BEE0D /* URLHandler */ = {
+		F72D328F241A6DCD000BEE0D /* URLRouter */ = {
 			isa = PBXGroup;
 			children = (
 				F72D3290241A6DCD000BEE0D /* AppDelegate.swift */,
@@ -114,16 +90,7 @@
 				F72D329B241A6DCE000BEE0D /* LaunchScreen.storyboard */,
 				F72D329E241A6DCE000BEE0D /* Info.plist */,
 			);
-			path = URLHandler;
-			sourceTree = "<group>";
-		};
-		F72D32A6241A6DCF000BEE0D /* URLHandlerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F72D32A7241A6DCF000BEE0D /* URLHandlerUITests.swift */,
-				F72D32A9241A6DCF000BEE0D /* Info.plist */,
-			);
-			path = URLHandlerUITests;
+			path = URLRouter;
 			sourceTree = "<group>";
 		};
 		F72D32B2241A6DF0000BEE0D /* Sources */ = {
@@ -142,6 +109,10 @@
 				F72D32CA241BB337000BEE0D /* ARouter.swift */,
 				F72D32BB241A75A4000BEE0D /* AViewController.swift */,
 				F72D32BC241A75A4000BEE0D /* AViewController.xib */,
+				F72D32D6241BBC29000BEE0D /* AViewControllerSubOne.swift */,
+				F72D32D7241BBC29000BEE0D /* AViewControllerSubOne.xib */,
+				F72D32DC241BBC4D000BEE0D /* AViewControllerSubTwo.swift */,
+				F72D32DD241BBC4D000BEE0D /* AViewControllerSubTwo.xib */,
 			);
 			path = ModuleA;
 			sourceTree = "<group>";
@@ -159,9 +130,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F72D328C241A6DCD000BEE0D /* URLHandler */ = {
+		F72D328C241A6DCD000BEE0D /* URLRouter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F72D32AC241A6DCF000BEE0D /* Build configuration list for PBXNativeTarget "URLHandler" */;
+			buildConfigurationList = F72D32AC241A6DCF000BEE0D /* Build configuration list for PBXNativeTarget "URLRouter" */;
 			buildPhases = (
 				F72D3289241A6DCD000BEE0D /* Sources */,
 				F72D328A241A6DCD000BEE0D /* Frameworks */,
@@ -171,28 +142,10 @@
 			);
 			dependencies = (
 			);
-			name = URLHandler;
+			name = URLRouter;
 			productName = URLHandler;
-			productReference = F72D328D241A6DCD000BEE0D /* URLHandler.app */;
+			productReference = F72D328D241A6DCD000BEE0D /* URLRouter.app */;
 			productType = "com.apple.product-type.application";
-		};
-		F72D32A2241A6DCF000BEE0D /* URLHandlerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F72D32AF241A6DCF000BEE0D /* Build configuration list for PBXNativeTarget "URLHandlerUITests" */;
-			buildPhases = (
-				F72D329F241A6DCF000BEE0D /* Sources */,
-				F72D32A0241A6DCF000BEE0D /* Frameworks */,
-				F72D32A1241A6DCF000BEE0D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F72D32A5241A6DCF000BEE0D /* PBXTargetDependency */,
-			);
-			name = URLHandlerUITests;
-			productName = URLHandlerUITests;
-			productReference = F72D32A3241A6DCF000BEE0D /* URLHandlerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -202,18 +155,14 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
-				ORGANIZATIONNAME = "陈元兵";
+				ORGANIZATIONNAME = iAllenC;
 				TargetAttributes = {
 					F72D328C241A6DCD000BEE0D = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
-					F72D32A2241A6DCF000BEE0D = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = F72D328C241A6DCD000BEE0D;
-					};
 				};
 			};
-			buildConfigurationList = F72D3288241A6DCD000BEE0D /* Build configuration list for PBXProject "URLHandler" */;
+			buildConfigurationList = F72D3288241A6DCD000BEE0D /* Build configuration list for PBXProject "URLRouter" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -226,8 +175,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F72D328C241A6DCD000BEE0D /* URLHandler */,
-				F72D32A2241A6DCF000BEE0D /* URLHandlerUITests */,
+				F72D328C241A6DCD000BEE0D /* URLRouter */,
 			);
 		};
 /* End PBXProject section */
@@ -237,20 +185,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F72D32DA241BBC2A000BEE0D /* AViewControllerSubOne.xib in Resources */,
 				F72D32C5241A75B0000BEE0D /* BViewController.xib in Resources */,
 				F72D32BF241A75A4000BEE0D /* AViewController.xib in Resources */,
 				F72D329D241A6DCE000BEE0D /* LaunchScreen.storyboard in Resources */,
+				F72D32E0241BBC4D000BEE0D /* AViewControllerSubTwo.xib in Resources */,
 				F72D329A241A6DCE000BEE0D /* Assets.xcassets in Resources */,
 				F72D3298241A6DCD000BEE0D /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F72D32A1241A6DCF000BEE0D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F72D32C0241A75A4000BEE0D /* AViewController.xib in Resources */,
-				F72D32C6241A75B0000BEE0D /* BViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,38 +206,17 @@
 				F72D32B4241A6DFB000BEE0D /* URLRouter.swift in Sources */,
 				F72D32D1241BB58A000BEE0D /* URL+Router.swift in Sources */,
 				F72D3295241A6DCD000BEE0D /* ViewController.swift in Sources */,
+				F72D32D8241BBC2A000BEE0D /* AViewControllerSubOne.swift in Sources */,
 				F72D32D4241BB5E1000BEE0D /* URLRouter+transform.swift in Sources */,
 				F72D32CE241BB3F9000BEE0D /* BRouter.swift in Sources */,
+				F72D32DE241BBC4D000BEE0D /* AViewControllerSubTwo.swift in Sources */,
 				F72D32CB241BB337000BEE0D /* ARouter.swift in Sources */,
 				F72D3291241A6DCD000BEE0D /* AppDelegate.swift in Sources */,
 				F72D32BD241A75A4000BEE0D /* AViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F72D329F241A6DCF000BEE0D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F72D32D2241BB58A000BEE0D /* URL+Router.swift in Sources */,
-				F72D32BE241A75A4000BEE0D /* AViewController.swift in Sources */,
-				F72D32CC241BB337000BEE0D /* ARouter.swift in Sources */,
-				F72D32B5241A6DFB000BEE0D /* URLRouter.swift in Sources */,
-				F72D32C4241A75B0000BEE0D /* BViewController.swift in Sources */,
-				F72D32A8241A6DCF000BEE0D /* URLHandlerUITests.swift in Sources */,
-				F72D32CF241BB3F9000BEE0D /* BRouter.swift in Sources */,
-				F72D32D5241BB5E1000BEE0D /* URLRouter+transform.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F72D32A5241A6DCF000BEE0D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F72D328C241A6DCD000BEE0D /* URLHandler */;
-			targetProxy = F72D32A4241A6DCF000BEE0D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F72D3296241A6DCD000BEE0D /* Main.storyboard */ = {
@@ -437,14 +357,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = URLHandler/Info.plist;
+				INFOPLIST_FILE = URLRouter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = allen.URLHandler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = allen.urlrouter;
+				PRODUCT_NAME = URLRouter;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -455,61 +375,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = URLHandler/Info.plist;
+				INFOPLIST_FILE = URLRouter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = allen.URLHandler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = allen.urlrouter;
+				PRODUCT_NAME = URLRouter;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		F72D32B0241A6DCF000BEE0D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = URLHandlerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = allen.URLHandlerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = URLHandler;
-			};
-			name = Debug;
-		};
-		F72D32B1241A6DCF000BEE0D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = URLHandlerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = allen.URLHandlerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = URLHandler;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F72D3288241A6DCD000BEE0D /* Build configuration list for PBXProject "URLHandler" */ = {
+		F72D3288241A6DCD000BEE0D /* Build configuration list for PBXProject "URLRouter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F72D32AA241A6DCF000BEE0D /* Debug */,
@@ -518,20 +400,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F72D32AC241A6DCF000BEE0D /* Build configuration list for PBXNativeTarget "URLHandler" */ = {
+		F72D32AC241A6DCF000BEE0D /* Build configuration list for PBXNativeTarget "URLRouter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F72D32AD241A6DCF000BEE0D /* Debug */,
 				F72D32AE241A6DCF000BEE0D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F72D32AF241A6DCF000BEE0D /* Build configuration list for PBXNativeTarget "URLHandlerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F72D32B0241A6DCF000BEE0D /* Debug */,
-				F72D32B1241A6DCF000BEE0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

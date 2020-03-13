@@ -2,8 +2,8 @@
 //  URLRouter+transform.swift
 //  URLHandler
 //
-//  Created by 陈元兵 on 2020/3/13.
-//  Copyright © 2020 陈元兵. All rights reserved.
+//  Created by iAllenC on 2020/3/13.
+//  Copyright © 2020 iAllenC. All rights reserved.
 //
 
 import UIKit

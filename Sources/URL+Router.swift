@@ -2,8 +2,8 @@
 //  URL+Router.swift
 //  URLHandler
 //
-//  Created by 陈元兵 on 2020/3/13.
-//  Copyright © 2020 陈元兵. All rights reserved.
+//  Created by iAllenC on 2020/3/13.
+//  Copyright © 2020 iAllenC. All rights reserved.
 //
 
 import Foundation
@@ -13,15 +13,16 @@ extension URL {
         guard let query = query else {
             return nil
         }
-        return query.components(separatedBy: "&").map {
-            $0.components(separatedBy: "=")
-        }.filter {
-            $0.count == 2
-        }.reduce([:]) { result, element -> [String: String] in
-            var mutResult = result
-            mutResult[element[0]] = element[1]
-            return mutResult
+        var parameters = [String: String]()
+        query.components(separatedBy: "&").forEach { component in
+            guard let separatorIndex = component.firstIndex(of: "=") else { return }
+            let keyRange = component.startIndex..<separatorIndex
+            let valueRange = component.index(after: separatorIndex)..<component.endIndex
+            let key = String(component[keyRange])
+            let value = component[valueRange].removingPercentEncoding ?? String(component[valueRange])
+            parameters[key] = value
         }
+        return parameters
     }
 }
 

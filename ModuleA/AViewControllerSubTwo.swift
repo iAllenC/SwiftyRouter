@@ -1,6 +1,6 @@
 //
-//  AViewController.swift
-//  URLRouter
+//  AViewControllerSubTwo.swift
+//  URLHandler
 //
 //  Created by iAllenC on 2020/3/13.
 //  Copyright © 2020 iAllenC. All rights reserved.
@@ -8,26 +8,15 @@
 
 import UIKit
 
-class AViewController: UIViewController {
-    
-    var value: String?
-    
-    @IBOutlet weak var valueLabel: UILabel!
+class AViewControllerSubTwo: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        valueLabel.text = value
-        title = "AVC"
+        title = "moduleA_sub2"
         // Do any additional setup after loading the view.
     }
 
 
-    @IBAction func btnAction(_ sender: UIButton) {
-        if let navi = navigationController {
-            navi.popViewController(animated: true)
-        } else {
-            dismiss(animated: true, completion: nil)
-        }
-    }
     /*
     // MARK: - Navigation
 

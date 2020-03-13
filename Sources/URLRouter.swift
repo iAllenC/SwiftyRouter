@@ -2,23 +2,50 @@
 //  URLRouter.swift
 //  URLRouter
 //
-//  Created by 陈元兵 on 2020/3/12.
-//  Copyright © 2020 陈元兵. All rights reserved.
+//  Created by iAllenC on 2020/3/12.
+//  Copyright © 2020 iAllenC. All rights reserved.
 //
 
 import UIKit
 
-@objc protocol URLRouter {
+@objc protocol URLRouter: class {
     
     var module: String { get }
     
+    var subRouters: [String: URLRouter]? { get }
+        
     func route(_ url: URL, parameter: [String: Any]?, completion: (([String: Any]) -> Void)?)
     
     func fetch(_ url: URL, parameter: [String: Any]?, completion: (([String: Any]) -> Void)?) -> UIViewController?
 
 }
 
+extension URLRouter {
+        
+    func subRouter(_ url: URL) -> URLRouter? {
+        guard let host = url.host, url.path.count > 0 else { return nil }
+        let pathComponents = url.pathComponents[1..<url.pathComponents.count]
+        if host == module {
+            if let targetModule = pathComponents.first {
+                return subRouters?[targetModule]
+            } else {
+                return nil
+            }
+        } else {
+            let matchPath = pathComponents.filter { $0 == module }.first
+            if let matchPath = matchPath {
+                return subRouters?[matchPath]
+            } else {
+                return nil
+            }
+        }
+    }
+    
+}
+
 class EmptyRouter: URLRouter {
+    
+    var subRouters: [String : URLRouter]?
     
     static let shared: EmptyRouter = EmptyRouter()
     

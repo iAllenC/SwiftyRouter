@@ -2,8 +2,8 @@
 //  BViewController.swift
 //  URLHandler
 //
-//  Created by 陈元兵 on 2020/3/12.
-//  Copyright © 2020 陈元兵. All rights reserved.
+//  Created by iAllenC on 2020/3/12.
+//  Copyright © 2020 iAllenC. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +16,7 @@ class BViewController: UIViewController {
         super.viewDidLoad()
 
         valueLabel.text = value
-        title = "AVC"
+        title = "BVC"
     }
 
     @IBAction func btnAction(_ sender: UIButton) {
