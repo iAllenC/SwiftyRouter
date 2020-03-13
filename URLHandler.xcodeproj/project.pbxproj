@@ -8,12 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		F72D3291241A6DCD000BEE0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D3290241A6DCD000BEE0D /* AppDelegate.swift */; };
-		F72D3293241A6DCD000BEE0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D3292241A6DCD000BEE0D /* SceneDelegate.swift */; };
 		F72D3295241A6DCD000BEE0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D3294241A6DCD000BEE0D /* ViewController.swift */; };
 		F72D3298241A6DCD000BEE0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72D3296241A6DCD000BEE0D /* Main.storyboard */; };
 		F72D329A241A6DCE000BEE0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72D3299241A6DCE000BEE0D /* Assets.xcassets */; };
 		F72D329D241A6DCE000BEE0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72D329B241A6DCE000BEE0D /* LaunchScreen.storyboard */; };
 		F72D32A8241A6DCF000BEE0D /* URLHandlerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32A7241A6DCF000BEE0D /* URLHandlerUITests.swift */; };
+		F72D32B4241A6DFB000BEE0D /* URLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32B3241A6DFB000BEE0D /* URLRouter.swift */; };
+		F72D32B5241A6DFB000BEE0D /* URLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32B3241A6DFB000BEE0D /* URLRouter.swift */; };
+		F72D32BD241A75A4000BEE0D /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32BB241A75A4000BEE0D /* AViewController.swift */; };
+		F72D32BE241A75A4000BEE0D /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32BB241A75A4000BEE0D /* AViewController.swift */; };
+		F72D32BF241A75A4000BEE0D /* AViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72D32BC241A75A4000BEE0D /* AViewController.xib */; };
+		F72D32C0241A75A4000BEE0D /* AViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72D32BC241A75A4000BEE0D /* AViewController.xib */; };
+		F72D32C3241A75B0000BEE0D /* BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32C1241A75B0000BEE0D /* BViewController.swift */; };
+		F72D32C4241A75B0000BEE0D /* BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32C1241A75B0000BEE0D /* BViewController.swift */; };
+		F72D32C5241A75B0000BEE0D /* BViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72D32C2241A75B0000BEE0D /* BViewController.xib */; };
+		F72D32C6241A75B0000BEE0D /* BViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72D32C2241A75B0000BEE0D /* BViewController.xib */; };
+		F72D32CB241BB337000BEE0D /* ARouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32CA241BB337000BEE0D /* ARouter.swift */; };
+		F72D32CC241BB337000BEE0D /* ARouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32CA241BB337000BEE0D /* ARouter.swift */; };
+		F72D32CE241BB3F9000BEE0D /* BRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32CD241BB3F9000BEE0D /* BRouter.swift */; };
+		F72D32CF241BB3F9000BEE0D /* BRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32CD241BB3F9000BEE0D /* BRouter.swift */; };
+		F72D32D1241BB58A000BEE0D /* URL+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32D0241BB58A000BEE0D /* URL+Router.swift */; };
+		F72D32D2241BB58A000BEE0D /* URL+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32D0241BB58A000BEE0D /* URL+Router.swift */; };
+		F72D32D4241BB5E1000BEE0D /* URLRouter+transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32D3241BB5E1000BEE0D /* URLRouter+transform.swift */; };
+		F72D32D5241BB5E1000BEE0D /* URLRouter+transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32D3241BB5E1000BEE0D /* URLRouter+transform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +46,6 @@
 /* Begin PBXFileReference section */
 		F72D328D241A6DCD000BEE0D /* URLHandler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLHandler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72D3290241A6DCD000BEE0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F72D3292241A6DCD000BEE0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F72D3294241A6DCD000BEE0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F72D3297241A6DCD000BEE0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F72D3299241A6DCE000BEE0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +54,15 @@
 		F72D32A3241A6DCF000BEE0D /* URLHandlerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URLHandlerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72D32A7241A6DCF000BEE0D /* URLHandlerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandlerUITests.swift; sourceTree = "<group>"; };
 		F72D32A9241A6DCF000BEE0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F72D32B3241A6DFB000BEE0D /* URLRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRouter.swift; sourceTree = "<group>"; };
+		F72D32BB241A75A4000BEE0D /* AViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AViewController.swift; sourceTree = "<group>"; };
+		F72D32BC241A75A4000BEE0D /* AViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AViewController.xib; sourceTree = "<group>"; };
+		F72D32C1241A75B0000BEE0D /* BViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BViewController.swift; sourceTree = "<group>"; };
+		F72D32C2241A75B0000BEE0D /* BViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BViewController.xib; sourceTree = "<group>"; };
+		F72D32CA241BB337000BEE0D /* ARouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARouter.swift; sourceTree = "<group>"; };
+		F72D32CD241BB3F9000BEE0D /* BRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRouter.swift; sourceTree = "<group>"; };
+		F72D32D0241BB58A000BEE0D /* URL+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Router.swift"; sourceTree = "<group>"; };
+		F72D32D3241BB5E1000BEE0D /* URLRouter+transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRouter+transform.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +86,10 @@
 		F72D3284241A6DCD000BEE0D = {
 			isa = PBXGroup;
 			children = (
+				F72D32B2241A6DF0000BEE0D /* Sources */,
 				F72D328F241A6DCD000BEE0D /* URLHandler */,
+				F72D32B6241A7543000BEE0D /* ModuleA */,
+				F72D32B7241A7543000BEE0D /* ModuleB */,
 				F72D32A6241A6DCF000BEE0D /* URLHandlerUITests */,
 				F72D328E241A6DCD000BEE0D /* Products */,
 			);
@@ -80,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				F72D3290241A6DCD000BEE0D /* AppDelegate.swift */,
-				F72D3292241A6DCD000BEE0D /* SceneDelegate.swift */,
 				F72D3294241A6DCD000BEE0D /* ViewController.swift */,
 				F72D3296241A6DCD000BEE0D /* Main.storyboard */,
 				F72D3299241A6DCE000BEE0D /* Assets.xcassets */,
@@ -97,6 +124,36 @@
 				F72D32A9241A6DCF000BEE0D /* Info.plist */,
 			);
 			path = URLHandlerUITests;
+			sourceTree = "<group>";
+		};
+		F72D32B2241A6DF0000BEE0D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F72D32B3241A6DFB000BEE0D /* URLRouter.swift */,
+				F72D32D3241BB5E1000BEE0D /* URLRouter+transform.swift */,
+				F72D32D0241BB58A000BEE0D /* URL+Router.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F72D32B6241A7543000BEE0D /* ModuleA */ = {
+			isa = PBXGroup;
+			children = (
+				F72D32CA241BB337000BEE0D /* ARouter.swift */,
+				F72D32BB241A75A4000BEE0D /* AViewController.swift */,
+				F72D32BC241A75A4000BEE0D /* AViewController.xib */,
+			);
+			path = ModuleA;
+			sourceTree = "<group>";
+		};
+		F72D32B7241A7543000BEE0D /* ModuleB */ = {
+			isa = PBXGroup;
+			children = (
+				F72D32CD241BB3F9000BEE0D /* BRouter.swift */,
+				F72D32C1241A75B0000BEE0D /* BViewController.swift */,
+				F72D32C2241A75B0000BEE0D /* BViewController.xib */,
+			);
+			path = ModuleB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +237,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F72D32C5241A75B0000BEE0D /* BViewController.xib in Resources */,
+				F72D32BF241A75A4000BEE0D /* AViewController.xib in Resources */,
 				F72D329D241A6DCE000BEE0D /* LaunchScreen.storyboard in Resources */,
 				F72D329A241A6DCE000BEE0D /* Assets.xcassets in Resources */,
 				F72D3298241A6DCD000BEE0D /* Main.storyboard in Resources */,
@@ -190,6 +249,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F72D32C0241A75A4000BEE0D /* AViewController.xib in Resources */,
+				F72D32C6241A75B0000BEE0D /* BViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,9 +261,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F72D32C3241A75B0000BEE0D /* BViewController.swift in Sources */,
+				F72D32B4241A6DFB000BEE0D /* URLRouter.swift in Sources */,
+				F72D32D1241BB58A000BEE0D /* URL+Router.swift in Sources */,
 				F72D3295241A6DCD000BEE0D /* ViewController.swift in Sources */,
+				F72D32D4241BB5E1000BEE0D /* URLRouter+transform.swift in Sources */,
+				F72D32CE241BB3F9000BEE0D /* BRouter.swift in Sources */,
+				F72D32CB241BB337000BEE0D /* ARouter.swift in Sources */,
 				F72D3291241A6DCD000BEE0D /* AppDelegate.swift in Sources */,
-				F72D3293241A6DCD000BEE0D /* SceneDelegate.swift in Sources */,
+				F72D32BD241A75A4000BEE0D /* AViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +277,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F72D32D2241BB58A000BEE0D /* URL+Router.swift in Sources */,
+				F72D32BE241A75A4000BEE0D /* AViewController.swift in Sources */,
+				F72D32CC241BB337000BEE0D /* ARouter.swift in Sources */,
+				F72D32B5241A6DFB000BEE0D /* URLRouter.swift in Sources */,
+				F72D32C4241A75B0000BEE0D /* BViewController.swift in Sources */,
 				F72D32A8241A6DCF000BEE0D /* URLHandlerUITests.swift in Sources */,
+				F72D32CF241BB3F9000BEE0D /* BRouter.swift in Sources */,
+				F72D32D5241BB5E1000BEE0D /* URLRouter+transform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +438,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = URLHandler/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -381,6 +456,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = URLHandler/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
