@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "9.0"
   spec.osx.deployment_target = "10.8"
   spec.source       = { :git => "https://github.com/iAllenC/URLRouter.git", :tag => "#{spec.version}" }
-  spec.source_files  = 'Source/*.{h,m}'
+  spec.source_files  = 'Sources/*.{swift}'
   # spec.exclude_files = "Classes/Exclude"
   # spec.public_header_files = "Classes/**/*.h"
 
