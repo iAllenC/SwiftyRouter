@@ -1,5 +1,5 @@
 //
-//  URLRouter+transform.swift
+//  Router+transform.swift
 //  URLHandler
 //
 //  Created by iAllenC on 2020/3/13.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension URLRouter {
+extension Router {
     public var topViewController: UIViewController? {
         var topController = UIApplication.shared.keyWindow?.rootViewController
         while let presented = topController?.presentedViewController {

@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import URLRouter
 
-struct BRouter: URLRouter {
+struct BRouter: Router {
     
     var module: String { "moduleB" } 
     

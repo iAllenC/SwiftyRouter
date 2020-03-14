@@ -1,15 +1,14 @@
 //
 //  CRouter.swift
-//  URLRouterDemo
+//  RouterDemo
 //
 //  Created by Dsee.Lab on 2020/3/14.
 //  Copyright © 2020 Dsee.Lab. All rights reserved.
 //
 
 import Foundation
-import URLRouter
 
-struct CRouter: URLRouter {
+struct CRouter: Router {
     
     var module: String { "moduleC" }
     

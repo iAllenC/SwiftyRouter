@@ -1,6 +1,6 @@
 //
-//  URLRouter.swift
-//  URLRouter
+//  Router.swift
+//  Router
 //
 //  Created by iAllenC on 2020/3/12.
 //  Copyright © 2020 iAllenC. All rights reserved.
@@ -12,11 +12,11 @@ public typealias RouteCompletion = ([String: Any]) -> Void
 public typealias RouteHandler = (URLConvertible, [String: Any]?, RouteCompletion?) -> Void
 public typealias RouteFetcher = (URLConvertible, [String: Any]?, RouteCompletion?) -> Any?
 
-public protocol URLRouter {
+public protocol Router {
     
     var module: String { get }
         
-    func subRouter(for module: String) -> URLRouter?
+    func subRouter(for module: String) -> Router?
         
     func route(_ url: URLConvertible, parameter: [String: Any]?, completion: RouteCompletion?)
     
@@ -24,22 +24,22 @@ public protocol URLRouter {
 
 }
 
-extension URLRouter {
+extension Router {
         
-    public func subRouter(for module: String) -> URLRouter? { nil }
+    public func subRouter(for module: String) -> Router? { nil }
 
-    public func subRouter(_ url: URLConvertible) -> URLRouter? {
+    public func subRouter(from url: URLConvertible) -> Router? {
         let url = url.asURL
         guard let host = url.host, url.path.count > 0 else { return nil }
         //the first of url.pathComponents is a "/", so we just ignore it
         let pathComponents = url.pathComponents[1..<url.pathComponents.count]
         if host == module {
             guard let targetModule = pathComponents.first else { return nil }
-            return subRouter(targetModule)
+            return subRouter(for: targetModule)
         } else {
             let matchPath = pathComponents.filter { $0 == module }.first
             guard matchPath != nil else { return nil }
-            return subRouter(matchPath!)
+            return subRouter(for: matchPath!)
         }
     }
 
@@ -47,7 +47,7 @@ extension URLRouter {
 
     //Try to find a sub router to handle the url, otherwise route the url using the parameter "router"
     public func routeAfterSub(_ url: URLConvertible, parameter: [String: Any]?, completion: RouteCompletion?, router: RouteHandler) {
-        if let subRouter = subRouter(url) {
+        if let subRouter = subRouter(from: url) {
             subRouter.route(url, parameter: parameter, completion: completion)
         } else {
             router(url, parameter, completion)
@@ -56,7 +56,7 @@ extension URLRouter {
     
     //Try to find a sub router to fetch the url, otherwise fetch the url using the parameter "fetcher"
     public func fetchAfterSub(_ url: URLConvertible, parameter: [String: Any]?, completion: RouteCompletion?, fetcher: RouteFetcher) -> Any? {
-        if let subRouter = subRouter(url) {
+        if let subRouter = subRouter(from: url) {
             return subRouter.fetch(url, parameter: parameter, completion: completion)
         } else {
             return fetcher(url, parameter, completion)
@@ -65,9 +65,9 @@ extension URLRouter {
 
 }
 
-private class EmptyRouter: URLRouter {
+private class EmptyRouter: Router {
             
-    var module: String = "URLRouter.Empty"
+    var module: String = "Router.Empty"
  
     func route(_ url: URLConvertible, parameter: [String: Any]?, completion: RouteCompletion?) {
         completion?(["result":false])
@@ -83,17 +83,17 @@ public class RouterFactory {
     
     public static let shared: RouterFactory = RouterFactory()
     
-    private var routers: [String: URLRouter] = [:]
+    private var routers: [String: Router] = [:]
     
-    public func router(for module: String) -> URLRouter {
+    public func router(for module: String) -> Router {
         return routers[module] ?? EmptyRouter()
     }
     
-    public func register(_ router: URLRouter) {
+    public func register(_ router: Router) {
         routers[router.module] = router
     }
     
-    public func register(_ routers: [URLRouter]) {
+    public func register(_ routers: [Router]) {
         routers.forEach(register)
     }
 }

@@ -1,19 +1,18 @@
 //
 //  ARouter.swift
-//  URLRouter
+//  Router
 //
 //  Created by iAllenC on 2020/3/13.
 //  Copyright © 2020 iAllenC. All rights reserved.
 //
 
 import UIKit
-import URLRouter
 
-struct ARouter: URLRouter {
+struct ARouter: Router {
     
     var module: String { "moduleA" }
             
-    func subRouter(for module: String) -> URLRouter? {
+    func subRouter(for module: String) -> Router? {
         switch module {
         case "moduleA_sub1":
             return ARouterOne()
@@ -43,7 +42,7 @@ struct ARouter: URLRouter {
     }
 }
 
-struct ARouterOne: URLRouter {
+struct ARouterOne: Router {
         
     var module: String { "moduleA_sub1" }
 
@@ -55,7 +54,7 @@ struct ARouterOne: URLRouter {
     
 }
 
-struct ARouterTwo: URLRouter {
+struct ARouterTwo: Router {
     
     var module: String { "moduleA_sub2" }
 
