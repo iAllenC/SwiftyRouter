@@ -12,20 +12,11 @@ class BRouter: URLRouter {
     
     var module: String = "moduleB"
     
-    var subRouters: [String : URLRouter]?
-
-    func route(_ url: URL, parameter: [String: Any]?, completion: (([String: Any]) -> Void)?) {
+    func route(_ url: URLConvertible, parameter: [String: Any]?, completion: (([String: Any]) -> Void)?) {
         let bvc = BViewController()
-        bvc.value = url.queryParameter?["value"]
+        bvc.value = parameter?["value"] as? String
         pushViewController(bvc, animated: true)
         completion?(["result": bvc])
     }
-    
-    func fetch(_ url: URL, parameter: [String : Any]?, completion: (([String : Any]) -> Void)?) -> UIViewController? {
-        let bvc = BViewController()
-        bvc.value = url.queryParameter?["value"]
-        completion?(["result": bvc])
-        return bvc
-    }
-    
+        
 }

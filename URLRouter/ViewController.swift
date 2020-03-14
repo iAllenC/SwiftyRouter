@@ -38,7 +38,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         case 2:
             cell.textLabel?.text = "route-urlrouter://moduleA/moduleA_sub2?value=passed_value(\(indexPath.section)-\(indexPath.row))"
         case 3:
-            cell.textLabel?.text = "route-urlrouter://moduleB/?value=passed_value(\(indexPath.section)-\(indexPath.row))"
+            cell.textLabel?.text = "route-urlrouter://moduleB,parameter: \(["value": "passed_value(\(indexPath.section)-\(indexPath.row))"]))"
         case 4:
             cell.textLabel?.text = "fetch-urlrouter://moduleB/?value=passed_value(\(indexPath.section)-\(indexPath.row))"
         default:
@@ -50,15 +50,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            Route(URL(string: "urlrouter://moduleA/?value=passed_value(\(indexPath.section)-\(indexPath.row))")!)
+            Route("urlrouter://moduleA/?value=passed_value(\(indexPath.section)-\(indexPath.row))")
         case 1:
-            Route(URL(string: "urlrouter://moduleA/moduleA_sub1?value=passed_value(\(indexPath.section)-\(indexPath.row))")!)
+            Route("urlrouter://moduleA/moduleA_sub1?value=passed_value(\(indexPath.section)-\(indexPath.row))")
         case 2:
-            Route(URL(string: "urlrouter://moduleA/moduleA_sub2?value=passed_value(\(indexPath.section)-\(indexPath.row))")!)
+            Route("urlrouter://moduleA/moduleA_sub2?value=passed_value(\(indexPath.section)-\(indexPath.row))")
         case 3:
-            Route(URL(string: "urlrouter://moduleB/?value=passed_value(\(indexPath.section)-\(indexPath.row))")!)
+            Route("urlrouter://moduleB", parameter: ["value": "passed_value(\(indexPath.section)-\(indexPath.row))"])
         case 4:
-            if let avc = Fetch(URL(string: "urlrouter://moduleA/?value=passed_value(\(indexPath.section)-\(indexPath.row))")!) {
+            if let avc = Fetch("urlrouter://moduleA/?value=passed_value(\(indexPath.section)-\(indexPath.row))") {
                 self.present(avc, animated: true, completion: nil)
             }
         default:

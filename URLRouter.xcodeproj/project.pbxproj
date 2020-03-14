@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BCE93D95241C6B6C0032E670 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE93D94241C6B6C0032E670 /* URLConvertible.swift */; };
 		F72D3291241A6DCD000BEE0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D3290241A6DCD000BEE0D /* AppDelegate.swift */; };
 		F72D3295241A6DCD000BEE0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D3294241A6DCD000BEE0D /* ViewController.swift */; };
 		F72D3298241A6DCD000BEE0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72D3296241A6DCD000BEE0D /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BCE93D94241C6B6C0032E670 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
 		F72D328D241A6DCD000BEE0D /* URLRouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLRouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72D3290241A6DCD000BEE0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F72D3294241A6DCD000BEE0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				F72D32B3241A6DFB000BEE0D /* URLRouter.swift */,
 				F72D32D3241BB5E1000BEE0D /* URLRouter+transform.swift */,
 				F72D32D0241BB58A000BEE0D /* URL+Router.swift */,
+				BCE93D94241C6B6C0032E670 /* URLConvertible.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				F72D32D8241BBC2A000BEE0D /* AViewControllerSubOne.swift in Sources */,
 				F72D32D4241BB5E1000BEE0D /* URLRouter+transform.swift in Sources */,
 				F72D32CE241BB3F9000BEE0D /* BRouter.swift in Sources */,
+				BCE93D95241C6B6C0032E670 /* URLConvertible.swift in Sources */,
 				F72D32DE241BBC4D000BEE0D /* AViewControllerSubTwo.swift in Sources */,
 				F72D32CB241BB337000BEE0D /* ARouter.swift in Sources */,
 				F72D3291241A6DCD000BEE0D /* AppDelegate.swift in Sources */,

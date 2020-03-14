@@ -9,7 +9,7 @@
 import Foundation
 
 extension URL {
-    var queryParameter: [String: String]? {
+    public var queryParameter: [String: String]? {
         guard let query = query else {
             return nil
         }
