@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  spec.name         = "URLRouter"
+  spec.name         = "SwiftyRouter"
   spec.version      = "0.0.1"
   spec.summary      = "A light weight router for swift "
   spec.homepage     = "https://github.com/iAllenC/URLRouter"
