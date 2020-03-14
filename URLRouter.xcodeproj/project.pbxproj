@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BCE93D95241C6B6C0032E670 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE93D94241C6B6C0032E670 /* URLConvertible.swift */; };
+		BCE93DED241CADB20032E670 /* CRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE93DE9241CADB20032E670 /* CRouter.swift */; };
+		BCE93DEE241CADB20032E670 /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE93DEB241CADB20032E670 /* CViewController.m */; };
+		BCE93DEF241CADB20032E670 /* CViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE93DEC241CADB20032E670 /* CViewController.xib */; };
 		F72D3291241A6DCD000BEE0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D3290241A6DCD000BEE0D /* AppDelegate.swift */; };
 		F72D3295241A6DCD000BEE0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D3294241A6DCD000BEE0D /* ViewController.swift */; };
 		F72D3298241A6DCD000BEE0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72D3296241A6DCD000BEE0D /* Main.storyboard */; };
@@ -30,6 +33,11 @@
 
 /* Begin PBXFileReference section */
 		BCE93D94241C6B6C0032E670 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
+		BCE93DE9241CADB20032E670 /* CRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRouter.swift; sourceTree = "<group>"; };
+		BCE93DEA241CADB20032E670 /* CViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CViewController.h; sourceTree = "<group>"; };
+		BCE93DEB241CADB20032E670 /* CViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CViewController.m; sourceTree = "<group>"; };
+		BCE93DEC241CADB20032E670 /* CViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CViewController.xib; sourceTree = "<group>"; };
+		BCE93DF0241CADE10032E670 /* URLRouter-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "URLRouter-Bridging-Header.h"; sourceTree = "<group>"; };
 		F72D328D241A6DCD000BEE0D /* URLRouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLRouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72D3290241A6DCD000BEE0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F72D3294241A6DCD000BEE0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BCE93DE8241CADB20032E670 /* ModuleC */ = {
+			isa = PBXGroup;
+			children = (
+				BCE93DE9241CADB20032E670 /* CRouter.swift */,
+				BCE93DEA241CADB20032E670 /* CViewController.h */,
+				BCE93DEB241CADB20032E670 /* CViewController.m */,
+				BCE93DEC241CADB20032E670 /* CViewController.xib */,
+			);
+			path = ModuleC;
+			sourceTree = "<group>";
+		};
 		F72D3284241A6DCD000BEE0D = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +89,7 @@
 				F72D328F241A6DCD000BEE0D /* URLRouter */,
 				F72D32B6241A7543000BEE0D /* ModuleA */,
 				F72D32B7241A7543000BEE0D /* ModuleB */,
+				BCE93DE8241CADB20032E670 /* ModuleC */,
 				F72D328E241A6DCD000BEE0D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,6 +105,7 @@
 		F72D328F241A6DCD000BEE0D /* URLRouter */ = {
 			isa = PBXGroup;
 			children = (
+				BCE93DF0241CADE10032E670 /* URLRouter-Bridging-Header.h */,
 				F72D3290241A6DCD000BEE0D /* AppDelegate.swift */,
 				F72D3294241A6DCD000BEE0D /* ViewController.swift */,
 				F72D3296241A6DCD000BEE0D /* Main.storyboard */,
@@ -194,6 +215,7 @@
 				F72D329D241A6DCE000BEE0D /* LaunchScreen.storyboard in Resources */,
 				F72D32E0241BBC4D000BEE0D /* AViewControllerSubTwo.xib in Resources */,
 				F72D329A241A6DCE000BEE0D /* Assets.xcassets in Resources */,
+				BCE93DEF241CADB20032E670 /* CViewController.xib in Resources */,
 				F72D3298241A6DCD000BEE0D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,9 +233,11 @@
 				F72D3295241A6DCD000BEE0D /* ViewController.swift in Sources */,
 				F72D32D8241BBC2A000BEE0D /* AViewControllerSubOne.swift in Sources */,
 				F72D32D4241BB5E1000BEE0D /* URLRouter+transform.swift in Sources */,
+				BCE93DEE241CADB20032E670 /* CViewController.m in Sources */,
 				F72D32CE241BB3F9000BEE0D /* BRouter.swift in Sources */,
 				BCE93D95241C6B6C0032E670 /* URLConvertible.swift in Sources */,
 				F72D32DE241BBC4D000BEE0D /* AViewControllerSubTwo.swift in Sources */,
+				BCE93DED241CADB20032E670 /* CRouter.swift in Sources */,
 				F72D32CB241BB337000BEE0D /* ARouter.swift in Sources */,
 				F72D3291241A6DCD000BEE0D /* AppDelegate.swift in Sources */,
 				F72D32BD241A75A4000BEE0D /* AViewController.swift in Sources */,
@@ -361,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = URLRouter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -369,6 +394,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = allen.urlrouter;
 				PRODUCT_NAME = URLRouter;
+				SWIFT_OBJC_BRIDGING_HEADER = "URLRouter/URLRouter-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -379,6 +405,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = URLRouter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -387,6 +414,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = allen.urlrouter;
 				PRODUCT_NAME = URLRouter;
+				SWIFT_OBJC_BRIDGING_HEADER = "URLRouter/URLRouter-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

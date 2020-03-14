@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import URLRouter
 
 class ViewController: UIViewController {
     
@@ -24,7 +25,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,7 +41,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         case 3:
             cell.textLabel?.text = "route-urlrouter://moduleB,parameter: \(["value": "passed_value(\(indexPath.section)-\(indexPath.row))"]))"
         case 4:
-            cell.textLabel?.text = "fetch-urlrouter://moduleB/?value=passed_value(\(indexPath.section)-\(indexPath.row))"
+            cell.textLabel?.text = "fetch-urlrouter://moduleA/?value=passed_value(\(indexPath.section)-\(indexPath.row))"
+        case 5:
+            cell.textLabel?.text = "route-urlrouter://moduleC"
         default:
             break
         }
@@ -58,9 +61,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         case 3:
             Route("urlrouter://moduleB", parameter: ["value": "passed_value(\(indexPath.section)-\(indexPath.row))"])
         case 4:
-            if let avc = Fetch("urlrouter://moduleA/?value=passed_value(\(indexPath.section)-\(indexPath.row))") {
+            if let avc = Fetch("urlrouter://moduleA/?value=passed_value(\(indexPath.section)-\(indexPath.row))") as? UIViewController {
                 self.present(avc, animated: true, completion: nil)
             }
+        case 5:
+            Route("urlrouter://moduleC")
         default:
             break
         }

@@ -7,37 +7,45 @@
 //
 
 import UIKit
+import URLRouter
 
-class ARouter: URLRouter {
+struct ARouter: URLRouter {
     
-    var module: String = "moduleA"
-        
-    var subRouters: [String : URLRouter]? = ["moduleA_sub1": ARouterOne(), "moduleA_sub2": ARouterTwo()]
-    
-    func route(_ url: URLConvertible, parameter: [String: Any]?, completion: (([String: Any]) -> Void)?) {
-        if let subRouter = subRouter(url) {
-            return subRouter.route(url, parameter: parameter, completion: completion)
+    var module: String { "moduleA" }
+            
+    func subRouter(for module: String) -> URLRouter? {
+        switch module {
+        case "moduleA_sub1":
+            return ARouterOne()
+        case "moduleA_sub2":
+            return ARouterTwo()
+        default:
+            return nil
         }
-        let avc = AViewController()
-        avc.value = url.queryParameter?["value"]
-        pushViewController(avc, animated: true)
-        completion?(["result": avc])
     }
     
-    func fetch(_ url: URLConvertible, parameter: [String : Any]?, completion: (([String : Any]) -> Void)?) -> UIViewController? {
-        if let subRouter = subRouter(url) {
-            return subRouter.fetch(url, parameter: parameter, completion: completion)
+    func route(_ url: URLConvertible, parameter: [String: Any]?, completion: (([String: Any]) -> Void)?) {
+        routeAfterSub(url, parameter: parameter, completion: completion) { (url, parameter, completion) in
+            let avc = AViewController()
+            avc.value = url.queryParameter?["value"]
+            pushViewController(avc, animated: true)
+            completion?(["result": avc])
         }
-        let avc = AViewController()
-        avc.value = url.queryParameter?["value"]
-        completion?(["result": avc])
-        return avc
+    }
+    
+    func fetch(_ url: URLConvertible, parameter: [String : Any]?, completion: (([String : Any]) -> Void)?) -> Any? {
+        fetchAfterSub(url, parameter: parameter, completion: completion) { (url, parameter, completion) -> Any? in
+            let avc = AViewController()
+            avc.value = url.queryParameter?["value"]
+            completion?(["result": avc])
+            return avc
+        }
     }
 }
 
-class ARouterOne: URLRouter {
+struct ARouterOne: URLRouter {
         
-    var module: String = "moduleA_sub1"
+    var module: String { "moduleA_sub1" }
 
     func route(_ url: URLConvertible, parameter: [String : Any]?, completion: (([String : Any]) -> Void)?) {
         let avc_sub1 = AViewControllerSubOne()
@@ -47,9 +55,9 @@ class ARouterOne: URLRouter {
     
 }
 
-class ARouterTwo: URLRouter {
+struct ARouterTwo: URLRouter {
     
-    var module: String = "moduleA_sub2"
+    var module: String { "moduleA_sub2" }
 
     func route(_ url: URLConvertible, parameter: [String : Any]?, completion: (([String : Any]) -> Void)?) {
         let avc_sub2 = AViewControllerSubTwo()

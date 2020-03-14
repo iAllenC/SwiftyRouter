@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import URLRouter
 
-class BRouter: URLRouter {
+struct BRouter: URLRouter {
     
-    var module: String = "moduleB"
+    var module: String { "moduleB" } 
     
     func route(_ url: URLConvertible, parameter: [String: Any]?, completion: (([String: Any]) -> Void)?) {
         let bvc = BViewController()
