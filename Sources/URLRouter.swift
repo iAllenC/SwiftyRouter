@@ -22,13 +22,13 @@ public protocol URLRouter: class {
 
 extension URLRouter {
     
-    var subRouters: [String: URLRouter]? { nil }
+    public var subRouters: [String: URLRouter]? { nil }
     
-    func fetch(_ url: URLConvertible, parameter: [String: Any]?, completion: (([String: Any]) -> Void)?) -> UIViewController? {
+    public func fetch(_ url: URLConvertible, parameter: [String: Any]?, completion: (([String: Any]) -> Void)?) -> UIViewController? {
         return nil
     }
 
-    func subRouter(_ url: URLConvertible) -> URLRouter? {
+    public func subRouter(_ url: URLConvertible) -> URLRouter? {
         let url = url.asURL
         guard let host = url.host, url.path.count > 0 else { return nil }
         let pathComponents = url.pathComponents[1..<url.pathComponents.count]
@@ -68,21 +68,21 @@ private class EmptyRouter: URLRouter {
     }
 }
 
-class RouterFactory {
+public class RouterFactory {
     
-    static let shared: RouterFactory = RouterFactory()
+    public static let shared: RouterFactory = RouterFactory()
     
-    var routers: [String: URLRouter] = [:]
+    private var routers: [String: URLRouter] = [:]
     
-    func router(for module: String) -> URLRouter {
+    public func router(for module: String) -> URLRouter {
         return routers[module] ?? EmptyRouter.shared
     }
     
-    func register(_ router: URLRouter) {
+    public func register(_ router: URLRouter) {
         routers[router.module] = router
     }
     
-    func register(_ routers: [URLRouter]) {
+    public func register(_ routers: [URLRouter]) {
         routers.forEach { register($0) }
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 extension URLRouter {
-    var topViewController: UIViewController? {
+    public var topViewController: UIViewController? {
         var topController = UIApplication.shared.keyWindow?.rootViewController
         while let presented = topController?.presentedViewController {
             topController = presented
@@ -17,7 +17,7 @@ extension URLRouter {
         return topController
     }
     
-    func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    public func pushViewController(_ viewController: UIViewController, animated: Bool) {
         let topController = topViewController
         if let navi = topController as? UINavigationController {
             navi.pushViewController(viewController, animated: animated)
@@ -31,7 +31,7 @@ extension URLRouter {
         }
     }
     
-    func presentViewController(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
+    public func presentViewController(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
         let topController = topViewController?.navigationController?.topViewController ?? topViewController
         topController?.present(viewController, animated: animated, completion: completion)
     }
