@@ -13,12 +13,12 @@ struct ARouter: Router {
     
     static var module: String { "module_a" }
 
-    func subRouter(for module: String) -> Router? {
+    static func subRouterType(for module: String) -> Router.Type? {
         switch module {
         case ARouterOne.module:
-            return ARouterOne()
+            return ARouterOne.self
         case ARouterTwo.module:
-            return ARouterTwo()
+            return ARouterTwo.self
         default:
             return nil
         }
@@ -43,8 +43,8 @@ struct ARouterOne: Router {
     
     static var module: String { "module_a_sub1" }
     
-    func subRouter(for module: String) -> Router? {
-        return module == ARouterOneOne.module ? ARouterOneOne() : nil
+    static func subRouterType(for module: String) -> Router.Type? {
+        return module == ARouterOneOne.module ? ARouterOneOne.self : nil
     }
 
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {

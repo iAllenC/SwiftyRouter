@@ -15,10 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Register(ARouter())
-        Register(BRouter())
-        Register(CRouter())
-        Register(ToolRouter())
+        Register([ARouter.self,
+                  BRouter.self,
+                  CRouter.self,
+                  ToolRouter.self])
         return true
     }
 

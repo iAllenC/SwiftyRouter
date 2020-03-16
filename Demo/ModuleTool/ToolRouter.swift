@@ -13,8 +13,8 @@ struct ToolRouter: Router {
     
     static var module: String { "module_tool" }
     
-    func subRouter(for module: String) -> Router? {
-        return module == "alert" ? AlertRouter() : nil
+    static func subRouterType(for module: String) -> Router.Type? {
+        return module == AlertRouter.module ? AlertRouter.self : nil
     }
     
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) { }
