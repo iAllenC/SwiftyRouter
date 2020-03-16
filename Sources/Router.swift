@@ -10,59 +10,47 @@ import UIKit
 
 public typealias RouteParameter = [String: Any?]
 public typealias RouteCompletion = (RouteParameter) -> Void
-public typealias RouteHandler = (URLConvertible, RouteParameter?, RouteCompletion?) -> Void
-public typealias RouteFetcher = (URLConvertible, RouteParameter?, RouteCompletion?) -> Any?
 
 public protocol Router {
     
+    //required
     static var module: String { get }
         
+    //optional
     func subRouter(for module: String) -> Router?
         
+    //required
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?)
     
+    //optional
     func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any?
 
 }
 
 extension Router {
         
-    public func subRouter(for module: String) -> Router? { nil }
+    public func subRouter(for module: String) -> Router? { nil  }
 
+    //find the appropriate router for url
     public func subRouter(from url: URLConvertible) -> Router? {
         guard let url = url.asURL, let host = url.host, url.path.count > 0 else { return nil }
         //the first of url.pathComponents is a "/", so we just ignore it
-        let pathComponents = url.pathComponents[1..<url.pathComponents.count]
+        let pathComponents = [String](url.pathComponents[1..<url.pathComponents.count])
         if host == Self.module {
             guard let targetModule = pathComponents.first else { return nil }
             return subRouter(for: targetModule)
         } else {
-            let matchPath = pathComponents.filter { $0 == Self.module }.first
-            guard matchPath != nil else { return nil }
-            return subRouter(for: matchPath!)
+            if let matchIndex = pathComponents.firstIndex(of: Self.module), matchIndex < pathComponents.count - 1 {
+                let targetModule = pathComponents[pathComponents.index(after: matchIndex)]
+                return subRouter(for: targetModule)
+            } else {
+                return nil
+            }
         }
     }
 
     public func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any? { nil }
-
-    //Try to find a sub router to handle the url, otherwise route the url using the parameter "router"
-    public func routeAfterSub(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?, router: RouteHandler) {
-        if let subRouter = subRouter(from: url) {
-            subRouter.route(url, parameter: parameter, completion: completion)
-        } else {
-            router(url, parameter, completion)
-        }
-    }
     
-    //Try to find a sub router to fetch the url, otherwise fetch the url using the parameter "fetcher"
-    public func fetchAfterSub(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?, fetcher: RouteFetcher) -> Any? {
-        if let subRouter = subRouter(from: url) {
-            return subRouter.fetch(url, parameter: parameter, completion: completion)
-        } else {
-            return fetcher(url, parameter, completion)
-        }
-    }
-
 }
 
 private class EmptyRouter: Router {
@@ -89,6 +77,18 @@ public class RouterFactory {
         return routers.keys.contains(module) ? routers[module]!() : EmptyRouter()
     }
     
+    func router(for url: URLConvertible) -> Router {
+        if let module = url.asURL?.host, routers.keys.contains(module) {
+            var router = routers[module]!()
+            while let targetRouter = router.subRouter(from: url) {
+                router = targetRouter
+            }
+            return router
+        } else {
+            return EmptyRouter()
+        }
+    }
+    
     public func register<T: Router>(_ router: @autoclosure @escaping () -> T) {
         routers[T.module] = router
     }
@@ -104,11 +104,9 @@ public func Register<T: Router>(_ router: @autoclosure @escaping () -> T) {
 // The convenience functions to route or fetch a url
 
 public func Route(_ url: URLConvertible, parameter: RouteParameter? = nil, completion: RouteCompletion? = nil) {
-    guard let host = url.asURL?.host else { return }
-    RouterFactory.shared.router(for: host).route(url, parameter: parameter, completion: completion)
+    RouterFactory.shared.router(for: url).route(url, parameter: parameter, completion: completion)
 }
 
 public func Fetch(_ url: URLConvertible, parameter: RouteParameter? = nil, completion: RouteCompletion? = nil) -> Any? {
-    guard let host = url.asURL?.host else { return nil }
-    return RouterFactory.shared.router(for: host).fetch(url, parameter: parameter, completion: completion)
+    RouterFactory.shared.router(for: url).fetch(url, parameter: parameter, completion: completion)
 }

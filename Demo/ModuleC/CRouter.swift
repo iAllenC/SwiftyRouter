@@ -11,11 +11,11 @@ import SwiftyURLRouter
 
 struct CRouter: Router {
     
-    static var module: String { "moduleC" }
+    static var module: String { "module_c" }
     
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
         let cvc = CViewController()
-        pushViewController(cvc, animated: true)
+        Transfer.push(cvc, animated: true)
         completion?(["result": cvc, "info": "Pushed View Controller:\(cvc)"])
     }
     

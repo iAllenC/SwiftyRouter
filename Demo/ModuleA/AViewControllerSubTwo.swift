@@ -12,7 +12,7 @@ class AViewControllerSubTwo: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "moduleA_sub2"
+        title = "module_a_sub2"
         // Do any additional setup after loading the view.
     }
 

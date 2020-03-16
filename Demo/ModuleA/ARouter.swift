@@ -11,13 +11,13 @@ import SwiftyURLRouter
 
 struct ARouter: Router {
     
-    static var module: String { "moduleA" }
+    static var module: String { "module_a" }
                 
     func subRouter(for module: String) -> Router? {
         switch module {
-        case "moduleA_sub1":
+        case "module_a_sub1":
             return ARouterOne()
-        case "moduleA_sub2":
+        case "module_a_sub2":
             return ARouterTwo()
         default:
             return nil
@@ -25,31 +25,31 @@ struct ARouter: Router {
     }
     
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
-        routeAfterSub(url, parameter: parameter, completion: completion) { (url, parameter, completion) in
-            let avc = AViewController()
-            avc.value = url.queryParameter?["value"]
-            pushViewController(avc, animated: true)
-            completion?(["result": avc])
-        }
+        let avc = AViewController()
+        avc.value = url.queryParameter?["value"]
+        Transfer.push(avc, animated: true)
+        completion?(["result": avc])
     }
     
     func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) -> Any? {
-        fetchAfterSub(url, parameter: parameter, completion: completion) { (url, parameter, completion) -> Any? in
-            let avc = AViewController()
-            avc.value = url.queryParameter?["value"]
-            completion?(["result": avc])
-            return avc
-        }
+        let avc = AViewController()
+        avc.value = url.queryParameter?["value"]
+        completion?(["result": avc])
+        return avc
     }
 }
 
 struct ARouterOne: Router {
         
-    static var module: String { "moduleA_sub1" }
+    static var module: String { "module_a_sub1" }
+    
+    func subRouter(for module: String) -> Router? {
+        return module == "module_a_sub1_sub1" ? ARouterOneOne() : nil
+    }
 
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
         let avc_sub1 = AViewControllerSubOne()
-        pushViewController(avc_sub1, animated: true)
+        Transfer.push(avc_sub1, animated: true)
         completion?(["result": avc_sub1])
     }
     
@@ -57,12 +57,21 @@ struct ARouterOne: Router {
 
 struct ARouterTwo: Router {
     
-    static var module: String { "moduleA_sub2" }
+    static var module: String { "module_a_sub2" }
 
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
         let avc_sub2 = AViewControllerSubTwo()
-        pushViewController(avc_sub2, animated: true)
+        Transfer.push(avc_sub2, animated: true)
         completion?(["result": avc_sub2])
     }
     
+}
+
+struct ARouterOneOne: Router {
+    
+    static var module: String { "module_a_sub1_sub1" }
+    
+    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
+        print("dispatched the route to module_a_sub1_sub1")
+    }
 }

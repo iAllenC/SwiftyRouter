@@ -8,17 +8,25 @@
 
 import UIKit
 
-extension Router {
-    public var topViewController: UIViewController? {
+extension UIViewController {
+    public static var topViewController: UIViewController? {
         var topController = UIApplication.shared.keyWindow?.rootViewController
         while let presented = topController?.presentedViewController {
             topController = presented
         }
         return topController
     }
-    
-    public func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        let topController = topViewController
+}
+
+public protocol Transferable {
+    static func push(_ viewController: UIViewController, animated: Bool)
+    static func present(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)?)
+}
+
+extension Transferable {
+        
+    public static func push(_ viewController: UIViewController, animated: Bool) {
+        let topController = UIViewController.topViewController
         if let navi = topController as? UINavigationController {
             navi.pushViewController(viewController, animated: animated)
         } else if let tab = topController as? UITabBarController {
@@ -31,8 +39,10 @@ extension Router {
         }
     }
     
-    public func presentViewController(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
-        let topController = topViewController?.navigationController?.topViewController ?? topViewController
-        topController?.present(viewController, animated: animated, completion: completion)
+    public static func present(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
+        UIViewController.topViewController?.present(viewController, animated: animated, completion: completion)
     }
+
 }
+
+public struct Transfer: Transferable { }

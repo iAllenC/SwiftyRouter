@@ -33,17 +33,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.numberOfLines = 0
         switch indexPath.row {
         case 0:
-            cell.textLabel?.text = "route-router://moduleA/?value=passed_value(\(indexPath.section)-\(indexPath.row))"
+            cell.textLabel?.text = "route-router://module_a/?value=passed_value(\(indexPath.section)-\(indexPath.row))"
         case 1:
-            cell.textLabel?.text = "route-router://moduleA/moduleA_sub1?value=passed_value(\(indexPath.section)-\(indexPath.row))"
+            cell.textLabel?.text = "route-router://module_a/module_a_sub1?value=passed_value(\(indexPath.section)-\(indexPath.row))"
         case 2:
-            cell.textLabel?.text = "route-router://moduleA/moduleA_sub2?value=passed_value(\(indexPath.section)-\(indexPath.row))"
+            cell.textLabel?.text = "route-router://module_a/module_a_sub2?value=passed_value(\(indexPath.section)-\(indexPath.row))"
         case 3:
-            cell.textLabel?.text = "route-router://moduleB/?value=passed_value(\(indexPath.section)-\(indexPath.row)),parameter: \(["image": "UIImage(named: \"image\")"]))"
+            cell.textLabel?.text = "route-router://module_b/?value=passed_value(\(indexPath.section)-\(indexPath.row)),parameter: \(["image": "UIImage(named: \"image\")"]))"
         case 4:
-            cell.textLabel?.text = "fetch-router://moduleA/?value=passed_value(\(indexPath.section)-\(indexPath.row))"
+            cell.textLabel?.text = "fetch-router://module_a/?value=passed_value(\(indexPath.section)-\(indexPath.row))"
         case 5:
-            cell.textLabel?.text = "route-router://moduleC"
+            cell.textLabel?.text = "route-router://module_c"
         case 6:
             cell.textLabel?.text = "router://module_tool/alert/?title=Alert from Route&message=This is an alert from Route&sure=确定"
         default:
@@ -55,19 +55,19 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            Route("router://moduleA/?value=passed_value(\(indexPath.section)-\(indexPath.row))")
+            Route("router://module_a/?value=passed_value(\(indexPath.section)-\(indexPath.row))")
         case 1:
-            Route("router://moduleA/moduleA_sub1?value=passed_value(\(indexPath.section)-\(indexPath.row))")
+            Route("router://module_a/module_a_sub1/module_a_sub1_sub1?value=passed_value(\(indexPath.section)-\(indexPath.row))")
         case 2:
-            Route("router://moduleA/moduleA_sub2?value=passed_value(\(indexPath.section)-\(indexPath.row))")
+            Route("router://module_a/module_a_sub2?value=passed_value(\(indexPath.section)-\(indexPath.row))")
         case 3:
-            Route("router://moduleB/?value=passed_value(\(indexPath.section)-\(indexPath.row))", parameter: ["image": UIImage(named: "image")])
+            Route("router://module_b/?value=passed_value(\(indexPath.section)-\(indexPath.row))", parameter: ["image": UIImage(named: "image")])
         case 4:
-            if let avc = Fetch("router://moduleA/?value=passed_value(\(indexPath.section)-\(indexPath.row))") as? UIViewController {
-                self.present(avc, animated: true, completion: nil)
+            if let avc = Fetch("router://module_a/?value=passed_value(\(indexPath.section)-\(indexPath.row))") as? UIViewController {
+                Transfer.present(avc, animated: true, completion: nil)
             }
         case 5:
-            Route("router://moduleC") {
+            Route("router://module_c") {
                 print($0)
             }
         case 6:

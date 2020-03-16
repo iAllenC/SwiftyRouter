@@ -17,10 +17,7 @@ struct ToolRouter: Router {
         return module == "alert" ? AlertRouter() : nil
     }
     
-    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
-        routeAfterSub(url, parameter: parameter, completion: completion) { _,_,_  in return }
-    }
-    
+    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) { }
     
 }
 
@@ -35,9 +32,9 @@ struct AlertRouter: Router {
             let sure = param["sure"]
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: sure, style: .cancel, handler: nil))
-            topViewController?.present(alert, animated: true, completion: {
+            UIViewController.topViewController?.present(alert, animated: true) {
                 completion?(["result": true])
-            })
+            }
         }
         
     }
