@@ -7,15 +7,12 @@
 //
 
 import UIKit
+import SwiftyURLRouter
 
 struct ARouter: Router {
     
     static var module: String { "moduleA" }
-    
-    init() {
-        print("\(self)Inited!")
-    }
-            
+                
     func subRouter(for module: String) -> Router? {
         switch module {
         case "moduleA_sub1":
