@@ -12,12 +12,12 @@ import SwiftyURLRouter
 struct ARouter: Router {
     
     static var module: String { "module_a" }
-                
+
     func subRouter(for module: String) -> Router? {
         switch module {
-        case "module_a_sub1":
+        case ARouterOne.module:
             return ARouterOne()
-        case "module_a_sub2":
+        case ARouterTwo.module:
             return ARouterTwo()
         default:
             return nil
@@ -40,11 +40,11 @@ struct ARouter: Router {
 }
 
 struct ARouterOne: Router {
-        
+    
     static var module: String { "module_a_sub1" }
     
     func subRouter(for module: String) -> Router? {
-        return module == "module_a_sub1_sub1" ? ARouterOneOne() : nil
+        return module == ARouterOneOne.module ? ARouterOneOne() : nil
     }
 
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
@@ -68,10 +68,14 @@ struct ARouterTwo: Router {
 }
 
 struct ARouterOneOne: Router {
-    
+        
     static var module: String { "module_a_sub1_sub1" }
     
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
-        print("dispatched the route to module_a_sub1_sub1")
+        let alert = UIAlertController(title: "Alert", message: "This is a third level layer", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        UIViewController.topViewController?.present(alert, animated: true) {
+            completion?(["result": true])
+        }
     }
 }

@@ -24,11 +24,13 @@ public protocol Router {
     
     //optional
     func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any?
+    
+    init()
 
 }
 
 extension Router {
-        
+    
     public func subRouter(for module: String) -> Router? { nil  }
 
     //find the appropriate router for url
@@ -53,7 +55,7 @@ extension Router {
     
 }
 
-private class EmptyRouter: Router {
+private struct EmptyRouter: Router {
             
     static var module: String { "Router.Empty" }
  
