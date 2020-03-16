@@ -9,6 +9,8 @@
 import UIKit
 import SwiftyURLRouter
 
+//MARK: First level router
+
 struct ARouter: Router {
     
     static var module: String { "module_a" }
@@ -39,6 +41,8 @@ struct ARouter: Router {
     }
 }
 
+//MARK: Second level router
+
 struct ARouterOne: Router {
     
     static var module: String { "module_a_sub1" }
@@ -66,6 +70,8 @@ struct ARouterTwo: Router {
     }
     
 }
+
+//MARK: Third level router
 
 struct ARouterOneOne: Router {
         
