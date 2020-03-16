@@ -11,6 +11,10 @@ import UIKit
 struct ARouter: Router {
     
     static var module: String { "moduleA" }
+    
+    init() {
+        print("\(self)Inited!")
+    }
             
     func subRouter(for module: String) -> Router? {
         switch module {

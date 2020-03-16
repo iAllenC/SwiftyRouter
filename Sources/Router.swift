@@ -89,10 +89,16 @@ public class RouterFactory {
         return routers.keys.contains(module) ? routers[module]!() : EmptyRouter()
     }
     
-    public func register<T: Router>(_ router:@autoclosure @escaping () -> T) {
+    public func register<T: Router>(_ router: @autoclosure @escaping () -> T) {
         routers[T.module] = router
     }
     
+}
+
+// The convenience functions to register a router
+
+public func Register<T: Router>(_ router: @autoclosure @escaping () -> T) {
+    RouterFactory.shared.register(router())
 }
 
 // The convenience functions to route or fetch a url
@@ -106,5 +112,3 @@ public func Fetch(_ url: URLConvertible, parameter: RouteParameter? = nil, compl
     guard let host = url.asURL?.host else { return nil }
     return RouterFactory.shared.router(for: host).fetch(url, parameter: parameter, completion: completion)
 }
-
-
