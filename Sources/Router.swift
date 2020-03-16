@@ -30,8 +30,7 @@ extension Router {
     public func subRouter(for module: String) -> Router? { nil }
 
     public func subRouter(from url: URLConvertible) -> Router? {
-        let url = url.asURL
-        guard let host = url.host, url.path.count > 0 else { return nil }
+        guard let url = url.asURL, let host = url.host, url.path.count > 0 else { return nil }
         //the first of url.pathComponents is a "/", so we just ignore it
         let pathComponents = url.pathComponents[1..<url.pathComponents.count]
         if host == Self.module {
@@ -99,11 +98,13 @@ public class RouterFactory {
 // The convenience functions to route or fetch a url
 
 public func Route(_ url: URLConvertible, parameter: RouteParameter? = nil, completion: RouteCompletion? = nil) {
-    RouterFactory.shared.router(for: url.asURL.host!).route(url, parameter: parameter, completion: completion)
+    guard let host = url.asURL?.host else { return }
+    RouterFactory.shared.router(for: host).route(url, parameter: parameter, completion: completion)
 }
 
 public func Fetch(_ url: URLConvertible, parameter: RouteParameter? = nil, completion: RouteCompletion? = nil) -> Any? {
-    RouterFactory.shared.router(for: url.asURL.host!).fetch(url, parameter: parameter, completion: completion)
+    guard let host = url.asURL?.host else { return nil }
+    return RouterFactory.shared.router(for: host).fetch(url, parameter: parameter, completion: completion)
 }
 
 

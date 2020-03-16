@@ -7,25 +7,26 @@
 //
 
 import Foundation
+
 public protocol URLConvertible {
-    var asURL: URL { get }
+    var asURL: URL? { get }
     var queryParameter: [String: String]? { get }
 }
 
 public extension URLConvertible {
     var queryParameter: [String: String]? {
-        asURL.queryParameter
+        asURL?.queryParameter
     }
 }
 
 extension URL: URLConvertible {
-    public var asURL: URL {
+    public var asURL: URL? {
         self
     }
 }
 
 extension String: URLConvertible {
-    public var asURL: URL {
+    public var asURL: URL? {
         if let url = URL(string: self) {
           return url
         }
@@ -34,6 +35,6 @@ extension String: URLConvertible {
         set.formUnion(.urlPathAllowed)
         set.formUnion(.urlQueryAllowed)
         set.formUnion(.urlFragmentAllowed)
-        return self.addingPercentEncoding(withAllowedCharacters: set).flatMap { URL(string: $0) }!
+        return self.addingPercentEncoding(withAllowedCharacters: set).flatMap { URL(string: $0) }
     }
 }
