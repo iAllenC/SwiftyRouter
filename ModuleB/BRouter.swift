@@ -10,11 +10,12 @@ import UIKit
 
 struct BRouter: Router {
     
-    var module: String { "moduleB" } 
+    static var module: String { "moduleB" } 
     
-    func route(_ url: URLConvertible, parameter: [String: Any]?, completion: (([String: Any]) -> Void)?) {
+    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
         let bvc = BViewController()
-        bvc.value = parameter?["value"] as? String
+        bvc.value = url.queryParameter?["value"]
+        bvc.image = parameter?["image"] as? UIImage
         pushViewController(bvc, animated: true)
         completion?(["result": bvc])
     }

@@ -10,13 +10,14 @@ import UIKit
 
 class BViewController: UIViewController {
     var value: String?
-
+    var image: UIImage?
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var valueLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        valueLabel.text = value
         title = "BVC"
+        valueLabel.text = value
+        imageView.image = image
     }
 
     @IBAction func btnAction(_ sender: UIButton) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC965FE6241CE07E0085089D /* ToolRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC965FE5241CE07E0085089D /* ToolRouter.swift */; };
 		BCE93D95241C6B6C0032E670 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE93D94241C6B6C0032E670 /* URLConvertible.swift */; };
 		BCE93DED241CADB20032E670 /* CRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE93DE9241CADB20032E670 /* CRouter.swift */; };
 		BCE93DEE241CADB20032E670 /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE93DEB241CADB20032E670 /* CViewController.m */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC965FE5241CE07E0085089D /* ToolRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolRouter.swift; sourceTree = "<group>"; };
 		BCE93D94241C6B6C0032E670 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
 		BCE93DE9241CADB20032E670 /* CRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRouter.swift; sourceTree = "<group>"; };
 		BCE93DEA241CADB20032E670 /* CViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CViewController.h; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC965FE4241CE0730085089D /* ModuleTool */ = {
+			isa = PBXGroup;
+			children = (
+				BC965FE5241CE07E0085089D /* ToolRouter.swift */,
+			);
+			path = ModuleTool;
+			sourceTree = "<group>";
+		};
 		BCE93DE8241CADB20032E670 /* ModuleC */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +97,7 @@
 			children = (
 				F72D32B2241A6DF0000BEE0D /* Sources */,
 				F72D328F241A6DCD000BEE0D /* Router */,
+				BC965FE4241CE0730085089D /* ModuleTool */,
 				F72D32B6241A7543000BEE0D /* ModuleA */,
 				F72D32B7241A7543000BEE0D /* ModuleB */,
 				BCE93DE8241CADB20032E670 /* ModuleC */,
@@ -238,6 +249,7 @@
 				BCE93D95241C6B6C0032E670 /* URLConvertible.swift in Sources */,
 				F72D32DE241BBC4D000BEE0D /* AViewControllerSubTwo.swift in Sources */,
 				BCE93DED241CADB20032E670 /* CRouter.swift in Sources */,
+				BC965FE6241CE07E0085089D /* ToolRouter.swift in Sources */,
 				F72D32CB241BB337000BEE0D /* ARouter.swift in Sources */,
 				F72D3291241A6DCD000BEE0D /* AppDelegate.swift in Sources */,
 				F72D32BD241A75A4000BEE0D /* AViewController.swift in Sources */,

@@ -14,7 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        RouterFactory.shared.register([ARouter(), BRouter(), CRouter()])
+        RouterFactory.shared.register(ARouter())
+        RouterFactory.shared.register(BRouter())
+        RouterFactory.shared.register(CRouter())
+        RouterFactory.shared.register(ToolRouter())
         return true
     }
 

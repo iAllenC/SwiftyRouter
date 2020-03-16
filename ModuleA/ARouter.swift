@@ -10,7 +10,7 @@ import UIKit
 
 struct ARouter: Router {
     
-    var module: String { "moduleA" }
+    static var module: String { "moduleA" }
             
     func subRouter(for module: String) -> Router? {
         switch module {
@@ -23,7 +23,7 @@ struct ARouter: Router {
         }
     }
     
-    func route(_ url: URLConvertible, parameter: [String: Any]?, completion: (([String: Any]) -> Void)?) {
+    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
         routeAfterSub(url, parameter: parameter, completion: completion) { (url, parameter, completion) in
             let avc = AViewController()
             avc.value = url.queryParameter?["value"]
@@ -32,7 +32,7 @@ struct ARouter: Router {
         }
     }
     
-    func fetch(_ url: URLConvertible, parameter: [String : Any]?, completion: (([String : Any]) -> Void)?) -> Any? {
+    func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) -> Any? {
         fetchAfterSub(url, parameter: parameter, completion: completion) { (url, parameter, completion) -> Any? in
             let avc = AViewController()
             avc.value = url.queryParameter?["value"]
@@ -44,9 +44,9 @@ struct ARouter: Router {
 
 struct ARouterOne: Router {
         
-    var module: String { "moduleA_sub1" }
+    static var module: String { "moduleA_sub1" }
 
-    func route(_ url: URLConvertible, parameter: [String : Any]?, completion: (([String : Any]) -> Void)?) {
+    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
         let avc_sub1 = AViewControllerSubOne()
         pushViewController(avc_sub1, animated: true)
         completion?(["result": avc_sub1])
@@ -56,9 +56,9 @@ struct ARouterOne: Router {
 
 struct ARouterTwo: Router {
     
-    var module: String { "moduleA_sub2" }
+    static var module: String { "moduleA_sub2" }
 
-    func route(_ url: URLConvertible, parameter: [String : Any]?, completion: (([String : Any]) -> Void)?) {
+    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
         let avc_sub2 = AViewControllerSubTwo()
         pushViewController(avc_sub2, animated: true)
         completion?(["result": avc_sub2])

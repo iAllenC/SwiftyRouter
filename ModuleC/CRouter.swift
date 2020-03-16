@@ -10,11 +10,12 @@ import Foundation
 
 struct CRouter: Router {
     
-    var module: String { "moduleC" }
+    static var module: String { "moduleC" }
     
-    func route(_ url: URLConvertible, parameter: [String : Any]?, completion: RouteCompletion?) {
+    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
         let cvc = CViewController()
         pushViewController(cvc, animated: true)
+        completion?(["result": cvc, "info": "Pushed View Controller:\(cvc)"])
     }
     
     

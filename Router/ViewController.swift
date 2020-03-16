@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         title = "Router"
         table.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-        table.rowHeight = 66
+        table.estimatedRowHeight = 66
     }
 
 
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,11 +38,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         case 2:
             cell.textLabel?.text = "route-router://moduleA/moduleA_sub2?value=passed_value(\(indexPath.section)-\(indexPath.row))"
         case 3:
-            cell.textLabel?.text = "route-router://moduleB,parameter: \(["value": "passed_value(\(indexPath.section)-\(indexPath.row))"]))"
+            cell.textLabel?.text = "route-router://moduleB/?value=passed_value(\(indexPath.section)-\(indexPath.row)),parameter: \(["image": "UIImage(named: \"image\")"]))"
         case 4:
             cell.textLabel?.text = "fetch-router://moduleA/?value=passed_value(\(indexPath.section)-\(indexPath.row))"
         case 5:
             cell.textLabel?.text = "route-router://moduleC"
+        case 6:
+            cell.textLabel?.text = "router://module_tool/alert/?title=Alert from Route&message=This is an alert from Route&sure=确定"
         default:
             break
         }
@@ -58,13 +60,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         case 2:
             Route("router://moduleA/moduleA_sub2?value=passed_value(\(indexPath.section)-\(indexPath.row))")
         case 3:
-            Route("router://moduleB", parameter: ["value": "passed_value(\(indexPath.section)-\(indexPath.row))"])
+            Route("router://moduleB/?value=passed_value(\(indexPath.section)-\(indexPath.row))", parameter: ["image": UIImage(named: "image")])
         case 4:
             if let avc = Fetch("router://moduleA/?value=passed_value(\(indexPath.section)-\(indexPath.row))") as? UIViewController {
                 self.present(avc, animated: true, completion: nil)
             }
         case 5:
-            Route("router://moduleC")
+            Route("router://moduleC") {
+                print($0)
+            }
+        case 6:
+            Route("router://module_tool/alert/?title=Alert from Route&message=This is an alert from Route&sure=确定")
         default:
             break
         }
