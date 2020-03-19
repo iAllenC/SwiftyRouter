@@ -36,7 +36,7 @@ extension Router {
 
     //find the appropriate router for url
     public static func subRouterType(from url: URLConvertible) -> Router.Type? {
-        guard let url = url.asURL, let host = url.host, url.path.count > 0 else { return nil }
+        guard let url = url.asURL, let host = url.host, url.pathComponents.count > 0 else { return nil }
         //the first of url.pathComponents is a "/", so we just ignore it
         let pathComponents = [String](url.pathComponents[1..<url.pathComponents.count])
         if host == Self.module {
@@ -101,7 +101,7 @@ public func Register(_ routerType: Router.Type) {
 }
 
 public func Register(_ routerTypes: [Router.Type]) {
-    routerTypes.forEach { Register($0) }
+    routerTypes.forEach(Register)
 }
 
 
