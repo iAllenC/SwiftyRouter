@@ -89,6 +89,9 @@ public class RouterFactory {
     }
         
     public func register(_ routerType: Router.Type) {
+        guard !routerTypes.keys.contains(routerType.module) else {
+            fatalError("Already existing routerType for modluel:\(routerType.module)")
+        }
         routerTypes[routerType.module] = routerType
     }
     
