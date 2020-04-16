@@ -9,7 +9,7 @@
 import UIKit
 
 public typealias RouteParameter = [String: Any?]
-public typealias RouteCompletion = (RouteParameter) -> Void
+public typealias RouteCompletion = (Any?) -> Void
 
 public protocol Router {
     
@@ -22,7 +22,7 @@ public protocol Router {
     //optional
     static func subRouterType(for module: String) -> Router.Type?
 
-    //required
+    //optional
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?)
     
     //optional
@@ -52,6 +52,7 @@ extension Router {
         }
     }
 
+    public func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {}
 
     public func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any? { nil }
     
@@ -61,12 +62,12 @@ private struct EmptyRouter: Router {
             
     static var module: String { "Router.Empty" }
  
-    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
-        completion?(["result":false])
+    static func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
+        completion?(false)
     }
 
-    func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any? {
-        completion?(["result":false])
+    static func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any? {
+        completion?(false)
         return nil
     }
 }
@@ -90,7 +91,11 @@ public class RouterFactory {
         
     public func register(_ routerType: Router.Type) {
         guard !routerTypes.keys.contains(routerType.module) else {
+            #if DEBUG
             fatalError("Already existing routerType for modluel:\(routerType.module)")
+            #else
+            return
+            #endif
         }
         routerTypes[routerType.module] = routerType
     }
@@ -106,7 +111,6 @@ public func Register(_ routerType: Router.Type) {
 public func Register(_ routerTypes: [Router.Type]) {
     routerTypes.forEach(Register)
 }
-
 
 // The convenience functions to route or fetch a url
 
