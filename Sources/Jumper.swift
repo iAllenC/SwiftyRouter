@@ -28,7 +28,7 @@ extension UIViewController {
         } else if let tab = self as? UITabBarController {
             let selectedController = tab.selectedViewController
             if let navi = selectedController as? UINavigationController {
-                return selectedController as? UINavigationController
+                return navi
             } else {
                 return selectedController?.navigationController
             }
@@ -47,11 +47,11 @@ public protocol Jumpable {
 extension Jumpable {
     
     public static func push(_ viewController: UIViewController, animated: Bool) {
-        (jumper as? UINavigationController)?.pushViewController(viewController, animated: animated)
+        jumper?.currentNavi?.pushViewController(viewController, animated: animated)
     }
 
     public static func present(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
-        UIViewController.topViewController?.present(viewController, animated: animated, completion: completion)
+        jumper?.present(viewController, animated: animated, completion: completion)
     }
 
 }
@@ -60,13 +60,13 @@ extension Jumpable {
 /// 基于当前顶部VC进行跳转
 public struct TopJumper: Jumpable {
     
-    public static var jumper: UIViewController? { UIViewController.topViewController?.currentNavi }
+    public static var jumper: UIViewController? { UIViewController.topViewController }
     
 }
 
 /// 基于当前rootVC进行跳转
 public struct RootJumper: Jumpable {
     
-    public static var jumper: UIViewController? { UIViewController.rootViewcontroller?.currentNavi }
+    public static var jumper: UIViewController? { UIViewController.rootViewcontroller }
     
 }
