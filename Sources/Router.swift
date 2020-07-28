@@ -52,9 +52,9 @@ extension Router {
         }
     }
 
-    public func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {}
+    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {}
 
-    public func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any? { nil }
+    func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any? { nil }
     
 }
 
