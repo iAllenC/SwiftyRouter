@@ -52,9 +52,9 @@ extension Router {
         }
     }
 
-    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {}
+    public func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {}
 
-    func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any? { nil }
+    public func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any? { nil }
     
 }
 
@@ -62,11 +62,11 @@ private struct EmptyRouter: Router {
             
     static var module: String { "Router.Empty" }
  
-    static func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
+    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
         completion?(false)
     }
 
-    static func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any? {
+    func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any? {
         completion?(false)
         return nil
     }
