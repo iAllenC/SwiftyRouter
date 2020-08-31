@@ -115,9 +115,15 @@ public func Register(_ routerTypes: [Router.Type]) {
 // The convenience functions to route or fetch a url
 
 public func Route(_ url: URLConvertible, parameter: RouteParameter? = nil, completion: RouteCompletion? = nil) {
+    #if DEBUG
+    debugPrint("SwiftyURLRouter Will Route: \(url)")
+    #endif
     RouterFactory.shared.router(for: url).route(url, parameter: parameter, completion: completion)
 }
 
 public func Fetch(_ url: URLConvertible, parameter: RouteParameter? = nil, completion: RouteCompletion? = nil) -> Any? {
-    RouterFactory.shared.router(for: url).fetch(url, parameter: parameter, completion: completion)
+    #if DEBUG
+    debugPrint("SwiftyURLRouter Will Fetch: \(url)")
+    #endif
+    return RouterFactory.shared.router(for: url).fetch(url, parameter: parameter, completion: completion)
 }
