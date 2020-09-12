@@ -51,7 +51,11 @@ extension Jumpable {
     }
 
     public static func present(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
-        jumper?.present(viewController, animated: animated, completion: completion)
+        var presenter = jumper
+        while let presented = presenter?.presentedViewController {
+            presenter = presented
+        }
+        presenter?.present(viewController, animated: animated, completion: completion)
     }
 
 }
