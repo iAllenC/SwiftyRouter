@@ -1,5 +1,5 @@
 PODS:
-  - SwiftyURLRouter (1.0.0)
+  - SwiftyURLRouter (2.0.0)
 
 DEPENDENCIES:
   - SwiftyURLRouter (from `..`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: ".."
 
 SPEC CHECKSUMS:
-  SwiftyURLRouter: 0482a8995dd76d3ccfc75ad571903b5f1ccdf5c1
+  SwiftyURLRouter: 7e4e1211017ae6a545358154580b5dd7b3f2f785
 
 PODFILE CHECKSUM: 21a9968945ea82d2c4d7646e833ac4a61278c8f5
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

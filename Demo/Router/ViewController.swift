@@ -52,7 +52,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             Route(urlTuple.1, parameter: urlTuple.2)
         } else {
             if let vc = Fetch(urlTuple.1) as? UIViewController {
-                Transfer.present(vc, animated: true, completion: nil)
+                RootJumper.present(vc, animated: true, completion: nil)
             }
         }
     }

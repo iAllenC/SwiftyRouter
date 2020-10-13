@@ -17,7 +17,7 @@ struct BRouter: Router {
         let bvc = BViewController()
         bvc.value = url.queryParameter?["value"]
         bvc.image = parameter?["image"] as? UIImage
-        Transfer.push(bvc, animated: true)
+        RootJumper.push(bvc, animated: true)
         completion?(["result": bvc])
     }
         

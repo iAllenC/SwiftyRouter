@@ -29,7 +29,7 @@ struct ARouter: Router {
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
         let avc = AViewController()
         avc.value = url.queryParameter?["value"]
-        Transfer.push(avc, animated: true)
+        RootJumper.push(avc, animated: true)
         completion?(["result": avc])
     }
     
@@ -53,7 +53,7 @@ struct ARouterOne: Router {
 
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
         let avc_sub1 = AViewControllerSubOne()
-        Transfer.push(avc_sub1, animated: true)
+        RootJumper.push(avc_sub1, animated: true)
         completion?(["result": avc_sub1])
     }
     
@@ -65,7 +65,7 @@ struct ARouterTwo: Router {
 
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
         let avc_sub2 = AViewControllerSubTwo()
-        Transfer.push(avc_sub2, animated: true)
+        RootJumper.push(avc_sub2, animated: true)
         completion?(["result": avc_sub2])
     }
     

@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Register([ARouter.self,
                   BRouter.self,
                   CRouter.self,
-                  ToolRouter.self])
+                  ToolRouter.self],
+                 to: "router")
         return true
     }
 

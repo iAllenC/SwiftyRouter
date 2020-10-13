@@ -15,7 +15,7 @@ struct CRouter: Router {
     
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
         let cvc = CViewController()
-        Transfer.push(cvc, animated: true)
+        RootJumper.push(cvc, animated: true)
         completion?(["result": cvc, "info": "Pushed View Controller:\(cvc)"])
     }
     
