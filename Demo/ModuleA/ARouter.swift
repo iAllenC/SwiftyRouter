@@ -26,14 +26,14 @@ struct ARouter: Router {
         }
     }
     
-    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
+    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
         let avc = AViewController()
         avc.value = url.queryParameter?["value"]
         RootJumper.push(avc, animated: true)
         completion?(["result": avc])
     }
     
-    func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) -> Any? {
+    func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any? {
         let avc = AViewController()
         avc.value = url.queryParameter?["value"]
         completion?(["result": avc])
@@ -51,7 +51,7 @@ struct ARouterOne: Router {
         return module == ARouterOneOne.module ? ARouterOneOne.self : nil
     }
 
-    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
+    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
         let avc_sub1 = AViewControllerSubOne()
         RootJumper.push(avc_sub1, animated: true)
         completion?(["result": avc_sub1])
@@ -63,7 +63,7 @@ struct ARouterTwo: Router {
     
     static var module: String { "module_a_sub2" }
 
-    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: ((RouteParameter) -> Void)?) {
+    func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
         let avc_sub2 = AViewControllerSubTwo()
         RootJumper.push(avc_sub2, animated: true)
         completion?(["result": avc_sub2])
