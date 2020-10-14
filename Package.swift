@@ -3,22 +3,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftyURLRouter",
+    name: "Router",
     platforms: [.iOS(.v10)],
     products: [
         .library(
-            name: "SwiftyURLRouter",
-            targets: ["SwiftyURLRouter"]
+            name: "Router",
+            targets: ["Router"]
         )
     ],
     targets: [
         .target(
-            name: "SwiftyURLRouter",
+            name: "Router",
             path: "Sources"
-        ),
-        .testTarget(
-            name: "SwiftyURLRouterTests",
-            dependencies: ["SwiftyURLRouter"]
         ),
     ]
 )
