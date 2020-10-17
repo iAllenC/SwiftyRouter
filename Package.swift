@@ -3,17 +3,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "Router",
+    name: "SwiftyURLRouter",
     platforms: [.iOS(.v10)],
     products: [
         .library(
-            name: "Router",
-            targets: ["Router"]
+            name: "SwiftyURLRouter",
+            targets: ["SwiftyURLRouter"]
         )
     ],
     targets: [
         .target(
-            name: "Router",
+            name: "SwiftyURLRouter",
             path: "Sources"
         ),
     ]
