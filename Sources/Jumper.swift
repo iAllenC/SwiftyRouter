@@ -36,6 +36,10 @@ extension UIViewController {
             return navigationController
         }
     }
+    
+    public func dismissToRoot(animated flag: Bool, completion: (() -> Void)? = nil) {
+        Self.rootViewcontroller?.dismiss(animated: flag, completion: completion)
+    }
 }
 
 public protocol Jumpable {

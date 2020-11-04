@@ -58,3 +58,28 @@ extension Router {
     
 }
 
+extension Router {
+    
+    public func fetchMixedParameterValue(from url: URLConvertible, parameters: RouteParameter?) -> RouteParameter {
+        var mixedParameters: RouteParameter = [:]
+        guard let url = url.asURL else { return mixedParameters }
+        if let urlParameter = url.queryParameter {
+            mixedParameters = urlParameter
+        }
+        if let parameters = parameters {
+            parameters.forEach { mixedParameters[$0] = $1 }
+        }
+        return mixedParameters
+    }
+    
+    public func fetchParameterValue(for key: String, from url: URLConvertible, parameters: RouteParameter?) -> Any? {
+        guard let url = url.asURL else { return nil }
+        if let urlParameter = url.queryParameter, let value = urlParameter[key] {
+            return value
+        } else {
+            return parameters?[key] as Any?
+        }
+    }
+    
+}
+
