@@ -60,7 +60,7 @@ extension Router {
 
 extension Router {
     
-    public func fetchMixedParameterValue(from url: URLConvertible, parameters: RouteParameter?) -> RouteParameter {
+    public func fetchMixedParameters(from url: URLConvertible, parameters: RouteParameter?) -> RouteParameter {
         var mixedParameters: RouteParameter = [:]
         guard let url = url.asURL else { return mixedParameters }
         if let urlParameter = url.queryParameter {

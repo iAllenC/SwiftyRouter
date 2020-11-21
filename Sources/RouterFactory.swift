@@ -113,7 +113,7 @@ public func Register(_ routerTypes: [Router.Type], to scheme: String) {
 
 public func Route(_ url: URLConvertible, parameter: RouteParameter? = nil, completion: RouteCompletion? = nil) {
     #if DEBUG
-    debugPrint("SwiftyURLRouter Will Route: \(url)")
+    print("SwiftyURLRouter Will Route: \(url)\nwith params: \n\(parameter ?? [:])")
     #endif
     guard let scheme = url.asURL?.scheme else { return }
     SchemeFactory.shared.factoryForScheme(scheme)?.router(for: url).route(url, parameter: parameter, completion: completion)
@@ -121,7 +121,7 @@ public func Route(_ url: URLConvertible, parameter: RouteParameter? = nil, compl
 
 public func Fetch(_ url: URLConvertible, parameter: RouteParameter? = nil, completion: RouteCompletion? = nil) -> Any? {
     #if DEBUG
-    debugPrint("SwiftyURLRouter Will Fetch: \(url)")
+    print("SwiftyURLRouter Will Fetch: \(url)\nwith params: \n\(parameter ?? [:])")
     #endif
     guard let scheme = url.asURL?.scheme else { return nil }
     return SchemeFactory.shared.factoryForScheme(scheme)?.router(for: url).fetch(url, parameter: parameter, completion: completion)
