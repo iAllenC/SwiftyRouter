@@ -3,6 +3,7 @@ Pod::Spec.new do |spec|
   spec.version      = "3.0.0"
   spec.summary      = "A light weight router for swift "
   spec.homepage     = "https://github.com/iAllenC/SwiftyRouter"
+  s.swift_versions   = '5.1'
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author       = { "iAllenC" => "373381941@qq.com" }
   spec.platform     = :ios, '9.0'

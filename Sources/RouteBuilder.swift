@@ -116,14 +116,20 @@ public struct RouterURLBuilder {
     
     public static func buildBlock(_ components: URLComponents...) -> URLRoute {
         let schemes = components.filter { $0.type == .scheme }
-        guard schemes.count == 1 || defaultScheme != nil else { fatalError("You must have 1 scheme, or you can set RouterURLBuilder.defaultScheme to use as the scheme") }
+        guard schemes.count == 1 || defaultScheme != nil else {
+            fatalError("You must have 1 scheme, or you can set RouterURLBuilder.defaultScheme to use as the scheme")
+        }
         let scheme = schemes.first ?? defaultScheme
         let modules = components.filter({ $0.type == .module })
-        guard modules.count > 0 else { fatalError("You must have at least 1 module") }
+        guard modules.count > 0 else {
+            fatalError("You must have at least 1 module")
+        }
         let queries = components.filter { $0.type == .query }
         let params = components.filter { $0.type == .parameter }
         let callbacks = components.filter { $0.type == .callback }
-        guard callbacks.count <= 1 else { fatalError("You can have at most 1 call back") }
+        guard callbacks.count <= 1 else {
+            fatalError("You can have at most 1 call back")
+        }
         return URLRoute(
             scheme: scheme as! Scheme,
             modules: modules as! [Module],
@@ -133,22 +139,4 @@ public struct RouterURLBuilder {
         )
     }
     
-}
-
-public func Route(@RouterURLBuilder _ builder: () -> URLRoute) {
-    let route = builder()
-    Route(
-        route.url,
-        parameter: route.routeParameter,
-        completion: route.callback?.value as? RouteCompletion
-    )
-}
-
-public func Fetch(@RouterURLBuilder _ builder: () -> URLRoute) -> Any? {
-    let route = builder()
-    return Fetch(
-        route.url,
-        parameter: route.routeParameter,
-        completion: route.callback?.value as? RouteCompletion
-    )
 }
