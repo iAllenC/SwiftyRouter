@@ -93,36 +93,3 @@ public class SchemeFactory {
     }
     
 }
-
-// The convenience functions to register a router type
-
-public func Register(_ routerType: Router.Type, to scheme: String) {
-    var factory = SchemeFactory.shared.factoryForScheme(scheme)
-    if factory == nil {
-        factory = DefaultFactory(schemes: [scheme])
-        SchemeFactory.shared.appendFactory(factory: factory!)
-    }
-    factory!.register(routerType)
-}
-
-public func Register(_ routerTypes: [Router.Type], to scheme: String) {
-    routerTypes.forEach { Register($0, to: scheme) }
-}
-
-// The convenience functions to route or fetch a url
-
-public func Route(_ url: URLConvertible, parameter: RouteParameter? = nil, completion: RouteCompletion? = nil) {
-    #if DEBUG
-    print("SwiftyURLRouter Will Route: \(url)\nwith params: \n\(parameter ?? [:])")
-    #endif
-    guard let scheme = url.asURL?.scheme else { return }
-    SchemeFactory.shared.factoryForScheme(scheme)?.router(for: url).route(url, parameter: parameter, completion: completion)
-}
-
-public func Fetch(_ url: URLConvertible, parameter: RouteParameter? = nil, completion: RouteCompletion? = nil) -> Any? {
-    #if DEBUG
-    print("SwiftyURLRouter Will Fetch: \(url)\nwith params: \n\(parameter ?? [:])")
-    #endif
-    guard let scheme = url.asURL?.scheme else { return nil }
-    return SchemeFactory.shared.factoryForScheme(scheme)?.router(for: url).fetch(url, parameter: parameter, completion: completion)
-}
