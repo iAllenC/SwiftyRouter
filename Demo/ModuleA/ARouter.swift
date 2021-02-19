@@ -53,6 +53,7 @@ struct ARouterOne: Router {
 
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
         let avc_sub1 = AViewControllerSubOne()
+        avc_sub1.passedValue = url.queryParameter?["value"]
         RootJumper.push(avc_sub1, animated: true)
         completion?(["result": avc_sub1])
     }

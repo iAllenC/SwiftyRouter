@@ -10,9 +10,13 @@ import UIKit
 
 class AViewControllerSubOne: UIViewController {
 
+    var passedValue: String?
+    
+    @IBOutlet weak var valueLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "module_a_sub1"
+        valueLabel.text = passedValue
         // Do any additional setup after loading the view.
     }
 

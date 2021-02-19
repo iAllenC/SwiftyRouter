@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  URLViewController.swift
 //  Router
 //
 //  Created by iAllenC on 2020/3/13.
@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyURLRouter
 
-class ViewController: UIViewController {
+class URLViewController: UIViewController {
     
     @IBOutlet weak var table: UITableView!
     
@@ -27,14 +27,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Router"
         table.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         table.estimatedRowHeight = 66
     }
 
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension URLViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return urls.count
     }

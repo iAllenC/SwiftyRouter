@@ -13,6 +13,9 @@ class BViewController: UIViewController {
     var image: UIImage?
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var valueLabel: UILabel!
+    
+    var completion: ((String) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "BVC"
@@ -26,6 +29,7 @@ class BViewController: UIViewController {
         } else {
             dismiss(animated: true, completion: nil)
         }
+        completion?("Callback from B!")
     }
 
     /*

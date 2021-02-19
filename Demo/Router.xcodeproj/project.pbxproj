@@ -11,9 +11,10 @@
 		BCE93DED241CADB20032E670 /* CRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE93DE9241CADB20032E670 /* CRouter.swift */; };
 		BCE93DEE241CADB20032E670 /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE93DEB241CADB20032E670 /* CViewController.m */; };
 		BCE93DEF241CADB20032E670 /* CViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE93DEC241CADB20032E670 /* CViewController.xib */; };
+		BCEA58D625DF8AF200E1ACAC /* RouteBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA58D525DF8AF200E1ACAC /* RouteBuilderViewController.swift */; };
 		ECE9A5EA38DB2A5E94E8B39A /* Pods_Router.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B98713FCCE3A0C8C38BEE512 /* Pods_Router.framework */; };
 		F72D3291241A6DCD000BEE0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D3290241A6DCD000BEE0D /* AppDelegate.swift */; };
-		F72D3295241A6DCD000BEE0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D3294241A6DCD000BEE0D /* ViewController.swift */; };
+		F72D3295241A6DCD000BEE0D /* URLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D3294241A6DCD000BEE0D /* URLViewController.swift */; };
 		F72D3298241A6DCD000BEE0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72D3296241A6DCD000BEE0D /* Main.storyboard */; };
 		F72D329A241A6DCE000BEE0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72D3299241A6DCE000BEE0D /* Assets.xcassets */; };
 		F72D329D241A6DCE000BEE0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72D329B241A6DCE000BEE0D /* LaunchScreen.storyboard */; };
@@ -38,10 +39,11 @@
 		BCE93DEB241CADB20032E670 /* CViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CViewController.m; sourceTree = "<group>"; };
 		BCE93DEC241CADB20032E670 /* CViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CViewController.xib; sourceTree = "<group>"; };
 		BCE93DF0241CADE10032E670 /* Router-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Router-Bridging-Header.h"; sourceTree = "<group>"; };
+		BCEA58D525DF8AF200E1ACAC /* RouteBuilderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderViewController.swift; sourceTree = "<group>"; };
 		E7C4119A670D835494D4CDD5 /* Pods-Router.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Router.debug.xcconfig"; path = "Target Support Files/Pods-Router/Pods-Router.debug.xcconfig"; sourceTree = "<group>"; };
 		F72D328D241A6DCD000BEE0D /* Router.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Router.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72D3290241A6DCD000BEE0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F72D3294241A6DCD000BEE0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F72D3294241A6DCD000BEE0D /* URLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLViewController.swift; sourceTree = "<group>"; };
 		F72D3297241A6DCD000BEE0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F72D3299241A6DCE000BEE0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F72D329C241A6DCE000BEE0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -133,7 +135,8 @@
 			children = (
 				BCE93DF0241CADE10032E670 /* Router-Bridging-Header.h */,
 				F72D3290241A6DCD000BEE0D /* AppDelegate.swift */,
-				F72D3294241A6DCD000BEE0D /* ViewController.swift */,
+				F72D3294241A6DCD000BEE0D /* URLViewController.swift */,
+				BCEA58D525DF8AF200E1ACAC /* RouteBuilderViewController.swift */,
 				F72D3296241A6DCD000BEE0D /* Main.storyboard */,
 				F72D3299241A6DCE000BEE0D /* Assets.xcassets */,
 				F72D329B241A6DCE000BEE0D /* LaunchScreen.storyboard */,
@@ -286,8 +289,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCEA58D625DF8AF200E1ACAC /* RouteBuilderViewController.swift in Sources */,
 				F72D32C3241A75B0000BEE0D /* BViewController.swift in Sources */,
-				F72D3295241A6DCD000BEE0D /* ViewController.swift in Sources */,
+				F72D3295241A6DCD000BEE0D /* URLViewController.swift in Sources */,
 				F72D32D8241BBC2A000BEE0D /* AViewControllerSubOne.swift in Sources */,
 				BCE93DEE241CADB20032E670 /* CViewController.m in Sources */,
 				F72D32CE241BB3F9000BEE0D /* BRouter.swift in Sources */,

@@ -31,7 +31,7 @@ struct AlertRouter: Router {
             let message = param["message"]
             let sure = param["sure"]
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: sure, style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: sure ?? "OK", style: .cancel, handler: nil))
             UIViewController.topViewController?.present(alert, animated: true) {
                 completion?(["result": true])
             }
