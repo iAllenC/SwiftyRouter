@@ -85,7 +85,7 @@ struct ARouter: Router {
     
     static var module: String { "moduleA" }
     
-  	/// 指定该模块的子模块，如无子模块，可不实现
+    /// 指定该模块的子模块，如无子模块，可不实现
     static func subRouterType(for module: String) -> Router.Type? {
         switch module {
         case ARouterOne.module:
@@ -138,11 +138,7 @@ struct ARouterOneOne: Router {
     static var module: String { "moduleA_sub1_sub1" }
     
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
-        let alert = UIAlertController(title: "Alert", message: "This is a third level layer", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        UIViewController.topViewController?.present(alert, animated: true) {
-            completion?(["result": true])
-        }
+        /// 执行路由逻辑（如跳转页面），传递参数及回调
     }
 }
 ```
