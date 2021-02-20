@@ -2,8 +2,8 @@
 轻量级swift页面路由方案，基于协议实现。
 
 [![CI Status](https://img.shields.io/travis/iAllenC/SwiftyURLRouter.svg?style=flat)](https://travis-ci.org/iAllenC/SwiftyURLRouter)
-[![Version](https://img.shields.io/cocoapods/v/SwiftyURLRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyRouter)
-[![License](https://img.shields.io/cocoapods/l/SwiftyURLRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyRouter)
+[![Version](https://img.shields.io/cocoapods/v/SwiftyURLRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyURLRouter)
+[![License](https://img.shields.io/cocoapods/l/SwiftyURLRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyURLRouter)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyURLRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyURLRouter)
 
 ## Requirements
@@ -98,11 +98,11 @@ struct ARouter: Router {
     }
     
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
-				/// 执行路由逻辑（如跳转页面），传递参数及回调
+	/// 执行路由逻辑（如跳转页面），传递参数及回调
     }
     
     func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any? {
-				/// 执行路由逻辑（如跳转页面），传递参数及回调，返回值
+	/// 执行路由逻辑（如跳转页面），传递参数及回调，返回值
     }
 }
 
