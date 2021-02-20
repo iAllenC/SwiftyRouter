@@ -1,10 +1,10 @@
 # SwiftyRouter
 轻量级swift页面路由方案，基于协议实现。
 
-[![CI Status](https://img.shields.io/travis/iAllenC/SwiftyRouter.svg?style=flat)](https://travis-ci.org/iAllenC/SwiftyRouter)
-[![Version](https://img.shields.io/cocoapods/v/SwiftyRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyRouter)
-[![License](https://img.shields.io/cocoapods/l/SwiftyRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyRouter)
-[![Platform](https://img.shields.io/cocoapods/p/SwiftyRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyRouter)
+[![CI Status](https://img.shields.io/travis/iAllenC/SwiftyURLRouter.svg?style=flat)](https://travis-ci.org/iAllenC/SwiftyURLRouter)
+[![Version](https://img.shields.io/cocoapods/v/SwiftyURLRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyRouter)
+[![License](https://img.shields.io/cocoapods/l/SwiftyURLRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyRouter)
+[![Platform](https://img.shields.io/cocoapods/p/SwiftyURLRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyURLRouter)
 
 ## Requirements
 
