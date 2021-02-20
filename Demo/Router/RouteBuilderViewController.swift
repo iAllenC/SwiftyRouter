@@ -67,7 +67,6 @@ extension RouteBuilderViewController: UITableViewDataSource, UITableViewDelegate
                         Query(key: "sure", value: "确定")
                     }
                 }
-                
             }
         default:
             break
