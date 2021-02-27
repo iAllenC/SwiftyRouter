@@ -33,6 +33,7 @@ Route(
 ) {
   print("\($0)")
 }
+.route()
 ```
 
 3.0版本后通过function builder支持DSL式调用：
@@ -51,6 +52,7 @@ Route {
       	print("\($0)")
     }
 }
+.route()
 ```
 
 具体步骤：
@@ -146,24 +148,43 @@ struct ARouterOneOne: Router {
 2.注册该实现class/struct的Type(只需注册一级模块，如modulA，其子模块无需注册，在subRouterType(for module: String)中返回即可):
 
 ```swift
-public func Register(_ routerType: Router.Type, to scheme: String)
+public extension SchemeFactory {
+    
+    @_functionBuilder struct RegisterBuilder {
+        static public func buildBlock(_ routerTypes: Router.Type...) -> [Router.Type] {
+            routerTypes
+        }
+    }
 
-public func Register(_ routerTypes: [Router.Type], to scheme: String)
+    func register(_ routerTypes: [Router.Type], to scheme: String) {
+        routerTypes.forEach { register($0, to: scheme) }
+    }
+    
+    func register(_ routerType: Router.Type, to scheme: String) {
+        var factory = factoryForScheme(scheme)
+        if factory == nil {
+            factory = DefaultFactory(schemes: [scheme])
+            SchemeFactory.shared.appendFactory(factory: factory!)
+        }
+        factory!.register(routerType)
+    }
+    
+    func register(scheme: String, @RegisterBuilder builder: () ->  [Router.Type]) {
+        builder().forEach { register($0, to: scheme) }
+    }
 
-public func Register(scheme: String, @RouterRegister routersBuilder: () ->  [Router.Type])
-
+}
 ```
 
 以上为三个注册方法，第一个方法注册单个router，第二个方法通过数组注册多个router，第三个方法通过builder注册多个router：
 
 ```swift
-Register(scheme: "router") {
+SchemeFactory.shared.register(scheme: "router") {
     ARouter.self
     BRouter.self
     CRouter.self
     ToolRouter.self
 }
-
 ```
 
 

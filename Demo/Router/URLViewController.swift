@@ -48,9 +48,9 @@ extension URLViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let urlTuple = urls[indexPath.row]
         if urlTuple.0 == "Route" {
-            Route(urlTuple.1, parameter: urlTuple.2)
+            Route(urlTuple.1, parameter: urlTuple.2).route()
         } else {
-            if let vc = Fetch(urlTuple.1) as? UIViewController {
+            if let vc = Route(urlTuple.1).fetch() as? UIViewController {
                 RootJumper.present(vc, animated: true, completion: nil)
             }
         }

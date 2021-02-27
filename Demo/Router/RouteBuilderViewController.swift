@@ -43,6 +43,7 @@ extension RouteBuilderViewController: UITableViewDataSource, UITableViewDelegate
                 Module("module_a")
                 Query(key: "value", value: "passed_value(module_a)")
             }
+            .route()
         case 1:
             Route {
                 Scheme("router")
@@ -50,6 +51,7 @@ extension RouteBuilderViewController: UITableViewDataSource, UITableViewDelegate
                 Module("module_a_sub1")
                 Query(key: "value", value: "passed_value(module_a_sub1)")
             }
+            .route()
         case 2:
             Route {
                 Scheme("router")
@@ -66,8 +68,10 @@ extension RouteBuilderViewController: UITableViewDataSource, UITableViewDelegate
                         Query(key: "message", value: message)
                         Query(key: "sure", value: "确定")
                     }
+                    .route()
                 }
             }
+            .route()
         default:
             break
         }
