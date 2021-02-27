@@ -67,7 +67,6 @@ class DefaultFactory: RouterFactory {
     
 }
 
-
 /// The factory of RouterFactory
 public class SchemeFactory {
     
@@ -81,7 +80,7 @@ public class SchemeFactory {
     }
     
     public func factoryExistsForScheme(_ scheme: String) -> Bool {
-        factories.first { $0.schemes.contains(scheme) } != nil
+        factories.contains { $0.schemes.contains(scheme) }
     }
     
     public func appendFactory(factory: RouterFactory) {
@@ -92,4 +91,8 @@ public class SchemeFactory {
         factories.first { $0.schemes.contains(scheme) }
     }
     
+    public func routerForUrl(_ url: URLConvertible) -> Router? {
+        guard let scheme = url.asURL?.scheme else { return nil }
+        return factoryForScheme(scheme)?.router(for: url)
+    }
 }

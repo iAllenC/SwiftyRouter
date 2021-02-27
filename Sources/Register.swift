@@ -7,30 +7,30 @@
 
 import Foundation
 
-@_functionBuilder public struct RouterRegister {
-        
-    static public func buildBlock(_ routerTypes: Router.Type...) -> [Router.Type] {
-        routerTypes
+public extension SchemeFactory {
+    
+    @_functionBuilder struct RegisterBuilder {
+        static public func buildBlock(_ routerTypes: Router.Type...) -> [Router.Type] {
+            routerTypes
+        }
+    }
+
+    func register(_ routerTypes: [Router.Type], to scheme: String) {
+        routerTypes.forEach { register($0, to: scheme) }
     }
     
-}
-
-// The convenience functions to register a router type
-
-public func Register(_ routerType: Router.Type, to scheme: String) {
-    var factory = SchemeFactory.shared.factoryForScheme(scheme)
-    if factory == nil {
-        factory = DefaultFactory(schemes: [scheme])
-        SchemeFactory.shared.appendFactory(factory: factory!)
+    func register(_ routerType: Router.Type, to scheme: String) {
+        var factory = factoryForScheme(scheme)
+        if factory == nil {
+            factory = DefaultFactory(schemes: [scheme])
+            SchemeFactory.shared.appendFactory(factory: factory!)
+        }
+        factory!.register(routerType)
     }
-    factory!.register(routerType)
-}
+    
+    func register(scheme: String, @RegisterBuilder builder: () ->  [Router.Type]) {
+        builder().forEach { register($0, to: scheme) }
+    }
 
-public func Register(_ routerTypes: [Router.Type], to scheme: String) {
-    routerTypes.forEach { Register($0, to: scheme) }
-}
-
-public func Register(scheme: String, @RouterRegister routersBuilder: () ->  [Router.Type]) {
-    Register(routersBuilder(), to: scheme)
 }
 

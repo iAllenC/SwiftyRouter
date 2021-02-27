@@ -13,19 +13,21 @@ public enum URLComponentsType {
     case parameter
     case query
     case callback
+    case empty
+    case full
 }
 
-public protocol URLComponents {
+public protocol RouteComponent {
     var type: URLComponentsType { get }
     var key: String? { get }
     var value: Any? { get }
 }
 
-public extension URLComponents {
+public extension RouteComponent {
     var key: String? { nil }
 }
 
-public struct Scheme: URLComponents {
+public struct Scheme: RouteComponent {
     
     public var type: URLComponentsType { .scheme }
     public let value: Any?
@@ -36,7 +38,7 @@ public struct Scheme: URLComponents {
     
 }
 
-public struct Module: URLComponents {
+public struct Module: RouteComponent {
     
     public var type: URLComponentsType { .module }
     public let value: Any?
@@ -46,7 +48,7 @@ public struct Module: URLComponents {
     }
 }
 
-public struct Query: URLComponents {
+public struct Query: RouteComponent {
     public var type: URLComponentsType { .query }
     public let key: String?
     public let value: Any?
@@ -57,7 +59,7 @@ public struct Query: URLComponents {
     }
 }
 
-public struct Parameter: URLComponents {
+public struct Parameter: RouteComponent {
     
     public var type: URLComponentsType { .parameter }
     public let key: String?
@@ -70,7 +72,7 @@ public struct Parameter: URLComponents {
 
 }
 
-public struct Callback: URLComponents {
+public struct Callback: RouteComponent {
     
     public var type: URLComponentsType { .callback }
     public let value: Any?
@@ -81,7 +83,14 @@ public struct Callback: URLComponents {
 
 }
 
-public struct URLRoute {
+public struct EmptyComponent: RouteComponent {
+    
+    public var type: URLComponentsType { .empty }
+    public var value: Any? { nil }
+    
+}
+
+public struct FullComponent {
     
     public let scheme: Scheme
     public let modules: [Module]
@@ -108,19 +117,26 @@ public struct URLRoute {
         return params
     }
 }
+ 
+extension FullComponent: RouteComponent {
+    
+    public var type: URLComponentsType { .full }
+    public var value: Any? { nil }
+    
+}
 
 @_functionBuilder
 public struct RouterURLBuilder {
     
     public static var defaultScheme: Scheme?
     
-    public static func buildBlock(_ components: URLComponents...) -> URLRoute {
+    public static func buildBlock(_ components: RouteComponent...) -> RouteComponent {
         let schemes = components.filter { $0.type == .scheme }
         guard schemes.count == 1 || defaultScheme != nil else {
             fatalError("You must have 1 scheme, or you can set RouterURLBuilder.defaultScheme to use as the scheme")
         }
         let scheme = schemes.first ?? defaultScheme
-        let modules = components.filter({ $0.type == .module })
+        let modules = components.filter { $0.type == .module }
         guard modules.count > 0 else {
             fatalError("You must have at least 1 module")
         }
@@ -130,7 +146,7 @@ public struct RouterURLBuilder {
         guard callbacks.count <= 1 else {
             fatalError("You can have at most 1 call back")
         }
-        return URLRoute(
+        return FullComponent(
             scheme: scheme as! Scheme,
             modules: modules as! [Module],
             queries: queries as! [Query],
@@ -138,5 +154,20 @@ public struct RouterURLBuilder {
             callback: callbacks.first as? Callback
         )
     }
+    public static func buildBlock(_ component: RouteComponent) -> RouteComponent {
+        component
+    }
     
+    public static func buildIf(_ component: RouteComponent?) -> RouteComponent {
+        component ?? EmptyComponent()
+    }
+    
+    public static func buildEither(first: RouteComponent) -> RouteComponent {
+        first
+    }
+    
+    public static func buildEither(second: RouteComponent) -> RouteComponent {
+        second
+    }
+
 }

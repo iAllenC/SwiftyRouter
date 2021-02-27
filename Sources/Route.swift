@@ -7,38 +7,69 @@
 
 import Foundation
 
-// The convenience functions to route or fetch a url
-
-public func Route(_ url: URLConvertible, parameter: RouteParameter? = nil, completion: RouteCompletion? = nil) {
-    #if DEBUG
-    print("SwiftyURLRouter Will Route: \(url)\nwith params: \n\(parameter ?? [:])")
-    #endif
-    guard let scheme = url.asURL?.scheme else { return }
-    SchemeFactory.shared.factoryForScheme(scheme)?.router(for: url).route(url, parameter: parameter, completion: completion)
+public struct Route {
+    
+    public let url: URLConvertible
+    public let parameter: RouteParameter?
+    public let callback: RouteCompletion?
+    
+    public init(
+        _ url: URLConvertible,
+        parameter: RouteParameter? = nil,
+        completion: RouteCompletion? = nil
+    ) {
+        self.url = url
+        self.parameter = parameter
+        self.callback = completion
+    }
+    
+    public init(_ full: FullComponent) {
+        self.init(
+            full.url,
+            parameter: full.routeParameter,
+            completion: full.callback?.value as? RouteCompletion
+        )
+    }
+    
+    public init(@RouterURLBuilder _ builder: () -> RouteComponent) {
+        let components = builder()
+        if let full = components as? FullComponent {
+            self.init(full)
+        } else if let module = components as? Module {
+            if let defaultScheme = RouterURLBuilder.defaultScheme {
+                self.init(
+                    FullComponent(
+                        scheme: defaultScheme,
+                        modules: [module],
+                        queries: [],
+                        params: [],
+                        callback: nil
+                    )
+                )
+            } else {
+                fatalError("You must have 1 scheme, or you can set RouterURLBuilder.defaultScheme to use as the scheme")
+            }
+        } else {
+            // Impossible
+            fatalError("Something went wrong")
+        }
+    }
+    
 }
 
-public func Fetch(_ url: URLConvertible, parameter: RouteParameter? = nil, completion: RouteCompletion? = nil) -> Any? {
-    #if DEBUG
-    print("SwiftyURLRouter Will Fetch: \(url)\nwith params: \n\(parameter ?? [:])")
-    #endif
-    guard let scheme = url.asURL?.scheme else { return nil }
-    return SchemeFactory.shared.factoryForScheme(scheme)?.router(for: url).fetch(url, parameter: parameter, completion: completion)
-}
-
-public func Route(@RouterURLBuilder _ builder: () -> URLRoute) {
-    let route = builder()
-    Route(
-        route.url,
-        parameter: route.routeParameter,
-        completion: route.callback?.value as? RouteCompletion
-    )
-}
-
-public func Fetch(@RouterURLBuilder _ builder: () -> URLRoute) -> Any? {
-    let route = builder()
-    return Fetch(
-        route.url,
-        parameter: route.routeParameter,
-        completion: route.callback?.value as? RouteCompletion
-    )
+public extension Route {
+    
+    func route() {
+        #if DEBUG
+        print("SwiftyURLRouter Will Route: \(url)\nwith params: \n\(parameter ?? [:])")
+        #endif
+        SchemeFactory.shared.routerForUrl(url)?.route(url, parameter: parameter, completion: callback)
+    }
+    
+    func fetch() -> Any? {
+        #if DEBUG
+        print("SwiftyURLRouter Will Fetch: \(url)\nwith params: \n\(parameter ?? [:])")
+        #endif
+        return SchemeFactory.shared.routerForUrl(url)?.fetch(url, parameter: parameter, completion: callback)
+    }
 }
