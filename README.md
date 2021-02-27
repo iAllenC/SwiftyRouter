@@ -2,8 +2,8 @@
 轻量级swift页面路由方案，基于协议实现。
 
 [![CI Status](https://img.shields.io/travis/iAllenC/SwiftyURLRouter.svg?style=flat)](https://travis-ci.org/iAllenC/SwiftyURLRouter)
-[![Version](https://img.shields.io/cocoapods/v/SwiftyURLRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyRouter)
-[![License](https://img.shields.io/cocoapods/l/SwiftyURLRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyRouter)
+[![Version](https://img.shields.io/cocoapods/v/SwiftyURLRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyURLRouter)
+[![License](https://img.shields.io/cocoapods/l/SwiftyURLRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyURLRouter)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyURLRouter.svg?style=flat)](https://cocoapods.org/pods/SwiftyURLRouter)
 
 ## Requirements
@@ -85,7 +85,7 @@ struct ARouter: Router {
     
     static var module: String { "moduleA" }
     
-  	/// 指定该模块的子模块，如无子模块，可不实现
+    /// 指定该模块的子模块，如无子模块，可不实现
     static func subRouterType(for module: String) -> Router.Type? {
         switch module {
         case ARouterOne.module:
@@ -98,11 +98,11 @@ struct ARouter: Router {
     }
     
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
-				/// 执行路由逻辑（如跳转页面），传递参数及回调
+	/// 执行路由逻辑（如跳转页面），传递参数及回调
     }
     
     func fetch(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) -> Any? {
-				/// 执行路由逻辑（如跳转页面），传递参数及回调，返回值
+	/// 执行路由逻辑（如跳转页面），传递参数及回调，返回值
     }
 }
 
@@ -117,7 +117,7 @@ struct ARouterOne: Router {
     }
 
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
-				/// 执行路由逻辑（如跳转页面），传递参数及回调
+	/// 执行路由逻辑（如跳转页面），传递参数及回调
     }
     
 }
@@ -127,7 +127,7 @@ struct ARouterTwo: Router {
     static var module: String { "moduleA_sub2" }
 
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
-				/// 执行路由逻辑（如跳转页面），传递参数及回调
+	/// 执行路由逻辑（如跳转页面），传递参数及回调
     }
 }
 
@@ -138,16 +138,12 @@ struct ARouterOneOne: Router {
     static var module: String { "moduleA_sub1_sub1" }
     
     func route(_ url: URLConvertible, parameter: RouteParameter?, completion: RouteCompletion?) {
-        let alert = UIAlertController(title: "Alert", message: "This is a third level layer", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        UIViewController.topViewController?.present(alert, animated: true) {
-            completion?(["result": true])
-        }
+        /// 执行路由逻辑（如跳转页面），传递参数及回调
     }
 }
 ```
 
-2.注册该实现class/struct的Type:
+2.注册该实现class/struct的Type(只需注册一级模块，如modulA，其子模块无需注册，在subRouterType(for module: String)中返回即可):
 
 ```swift
 public func Register(_ routerType: Router.Type, to scheme: String)
