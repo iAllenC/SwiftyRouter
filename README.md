@@ -12,9 +12,17 @@ iOS 9.0，swift 5.1
 
 ## Installation
 
+Cocoapods
+
 ```ruby
 pod 'SwiftyURLRouter', '~> 3.0.0'
 ```
+
+#### Swift Package Manager
+
+- File > Swift Packages > Add Package Dependency
+- Add `https://github.com/iAllenC/SwiftyRouter`
+- Select "Up to Next Major" with "3.0.0"
 
 ## Use
 
