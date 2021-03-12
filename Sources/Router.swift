@@ -57,9 +57,9 @@ extension Router {
     
 }
 
-extension Router {
+public extension Router {
     
-    public func fetchMixedParameters(from url: URLConvertible, parameters: RouteParameter?) -> RouteParameter {
+    func fetchMixedParameters(from url: URLConvertible, parameters: RouteParameter?) -> RouteParameter {
         var mixedParameters: RouteParameter = [:]
         guard let url = url.asURL else { return mixedParameters }
         if let urlParameter = url.queryParameter {
@@ -71,7 +71,7 @@ extension Router {
         return mixedParameters
     }
     
-    public func fetchParameterValue(for key: String, from url: URLConvertible, parameters: RouteParameter?) -> Any? {
+    func fetchParameterValue(for key: String, from url: URLConvertible, parameters: RouteParameter?) -> Any? {
         guard let url = url.asURL else { return nil }
         if let urlParameter = url.queryParameter, let value = urlParameter[key] {
             return value
@@ -80,4 +80,40 @@ extension Router {
         }
     }
     
+    func fetchInt(_ key: String, from url: URLConvertible, parameter: RouteParameter?) -> Int? {
+        if let parameter = parameter, let int = parameter[key] as? Int {
+            return int
+        } else if let string = url.queryParameter?[key], let int = Int(string) {
+            return int
+        } else {
+            return nil
+        }
+    }
+    
+    func fetchDouble(_ key: String, from url: URLConvertible, parameter: RouteParameter?) -> Double? {
+        if let parameter = parameter, let double = parameter[key] as? Double {
+            return double
+        } else if let string = url.queryParameter?[key], let double = Double(string) {
+            return double
+        } else {
+            return nil
+        }
+    }
+    
+    func fetchBool(_ key: String, from url: URLConvertible, parameter: RouteParameter?) -> Bool? {
+        if let parameter = parameter, let bool = parameter[key] as? Bool {
+            return bool
+        } else if let string = url.queryParameter?[key] {
+            if let int = Double(string) {
+                return int == 1
+            } else {
+                return key == "true"
+            }
+        } else {
+            return nil
+        }
+
+    }
+
+
 }
