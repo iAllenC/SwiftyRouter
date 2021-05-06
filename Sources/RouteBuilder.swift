@@ -125,7 +125,7 @@ extension FullComponent: RouteComponent {
     
 }
 
-@_functionBuilder
+@resultBuilder
 public struct RouterURLBuilder {
     
     public static var defaultScheme: Scheme?

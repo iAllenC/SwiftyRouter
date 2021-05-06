@@ -9,7 +9,8 @@ import Foundation
 
 public extension SchemeFactory {
     
-    @_functionBuilder struct RegisterBuilder {
+    @resultBuilder
+    struct RegisterBuilder {
         static public func buildBlock(_ routerTypes: Router.Type...) -> [Router.Type] {
             routerTypes
         }
